@@ -1,0 +1,64 @@
+
+collections {
+    base_scale: 1.7;
+    images {
+        image: "settings_ic_delete.png" COMP;
+    }
+    group { name: "delete_object";
+        parts {
+            part {
+                name: "settings_ic_delete";
+                type: IMAGE;
+                scale: 1;
+                mouse_events: 0;
+                description {
+                    state: "default" 0.0;
+                    visible: 1;
+                    min: 30 30;
+                    max: 60 60;
+                    fixed: 1 1;
+                    align: 0.5 0.5;
+                    color_class: F060L1;
+                    image { normal: "settings_ic_delete.png"; }
+                }
+                description {
+                    state: "press" 0.0;
+                    inherit: "default" 0.0;
+                    color_class: F060L1P;
+                }
+                description {
+                    state: "dim" 0.0;
+                    inherit: "default" 0.0;
+                    color_class: F060L1D;
+                }
+            }
+        }
+        programs {
+            program {
+                name: "icon_press";
+                signal: "press";
+                source: "button";
+                script {
+                    set_state(PART:"settings_ic_delete", "press", 0.0);
+                }
+            }
+            program {
+                name: "icon_dim";
+                signal: "dim";
+                source: "button";
+                script {
+                    set_state(PART:"settings_ic_delete", "dim", 0.0);
+                }
+            }
+            program {
+                name: "icon_normal";
+                signal: "normal";
+                source: "button";
+                script {
+                    set_state(PART:"settings_ic_delete", "default", 0.0);
+                }
+            }
+        }
+    }
+}
+

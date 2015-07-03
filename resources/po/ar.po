@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "تمت"
+
+msgid "IDS_COM_SK_OK"
+msgstr "موافق"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "إلغاء"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "اختيار الكل"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "الأماكن المفضلة لدي"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "إضافة"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "تم تحديد %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "المكتب"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "الاسم"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "خريطة"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "البلوتوث"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "اختيار"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "تتعذر الإضافة."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "لا شيء"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "موجود مسبقا."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "لا يوجد اسم"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "احفظ مواقعك المفضلة لاستخدامها مع التطبيقات التي تتطلب معلومات حول الموقع."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "بيت"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "سيارة"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "سيوفر جهازك المعلومات والخدمات ذات الصلة باستخدام الخرائط أو Wi-Fi أو البلوتوث عندما يكتشف أنك في مواقع محفوظة."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "تحديد طريقة"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "مسح"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "إضافة مكان"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "اسم المكان مستخدم مسبقًا."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "تعديل المكان"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "غير محدد"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "لم يتم العثور على أية نتيجة"
+

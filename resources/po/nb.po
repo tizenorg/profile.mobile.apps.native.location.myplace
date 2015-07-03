@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Utført"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Avbryt"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Merk alt"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Mine steder"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Legg til"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d er valgt"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Jobb"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Navn"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Kart"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Velg"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Kan ikke legge til."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Ingen"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Finnes allerede."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Ingen navn"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Lagre favorittposisjonene dine for bruk med apper som krever posisjonsinformasjon."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Hjem"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Bil"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Enheten vil gi deg relevant informasjon og tjenester ved å bruke kart, Wi-Fi eller Bluetooth når den gjenkjenner at du er på lagrede posisjoner."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Velg metode"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Slett"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Tilf. sted"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Stedsnavnet er allerede i bruk."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Endre sted"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Ikke valgt"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Fant ingen resultater"
+

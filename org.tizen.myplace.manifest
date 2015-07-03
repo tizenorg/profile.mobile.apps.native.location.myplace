@@ -1,0 +1,24 @@
+<manifest>
+	<define>
+		<domain name="org.tizen.myplace" />
+			<request>
+				<smack request="connman" type="rwx"/>
+				<smack request="connman::set" type="rw"/>
+				<smack request="connman::get" type="rw"/>
+				<smack request="connman::profile" type="rw"/>
+				<smack request="wpasupplicant" type="rwx"/>
+				<smack request="telephony_framework::api_ps_public" type="rw"/>
+				<smack request="telephony_framework::api_ps_profile" type="rw"/>
+				<smack request="system::use_internet" type="rwx"/>
+				<smack request="bt-service::public" type="w"/>
+				<smack request="bt-service::platform" type="rw"/>
+				<smack request="location_fw::client" type="rwx"/>
+			</request>
+			<permit>
+				<smack permit="connman" type="rwx"/>
+			</permit>
+	</define>
+	<request>
+		<domain name="org.tizen.myplace" />
+	</request>
+</manifest>

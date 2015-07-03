@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Готово"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Отмени"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Избери всички"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Моите места"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Добавяне"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d избрани"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Офис"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Име"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Карта"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Избери"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Не може да се добави"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Няма"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Вече съществува."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Без име"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Записвайте любимите си местоположения, за да могат да се използват с приложения, които изискват информация за местоположение."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Начало"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Автомобил"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Вашето устройство ще предоставя подходяща информация и услуги чрез карти, Wi-Fi или Bluetooth, когато разпознае, че сте в записаните местоположения."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Изберете метод"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Изтриване"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Доб. на място"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Името на мястото вече се използва."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Редак. място"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Не е избрано"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Няма намерени резултати"
+

@@ -1,0 +1,38 @@
+org.tizen.myplace org.tizen.myplace rwx--- ------
+org.tizen.myplace ug-launcher r-x--- ------
+
+org.tizen.myplace system::media rwxat- ------
+org.tizen.myplace system::homedir rwxat- ------
+org.tizen.myplace system::share rwxat- ------
+org.tizen.myplace system::pulseaudio rwxat- ------
+org.tizen.myplace sys-assert::core rwxat- ------
+org.tizen.myplace org.tizen.indicator rwx--- ------
+org.tizen.indicator org.tizen.myplace rwx--- ------
+e17 org.tizen.myplace -w---- ------
+
+org.tizen.myplace system::use_internet rw---- ------
+system::use_internet org.tizen.myplace rw---- ------
+org.tizen.myplace system::app_logging -w---- ------
+
+org.tizen.myplace aul::launch --x--- ------
+org.tizen.myplace org.tizen.browser --x--- ------
+org.tizen.browser org.tizen.myplace rw---- ------
+
+org.tizen.myplace xorg rw---- ------
+org.tizen.myplace isf rwx--- ------
+org.tizen.myplace pkgmgr::db rw---l ------
+org.tizen.myplace ail::db rw---- ------
+
+org.tizen.myplace ug_bluetooth r-x--- ------
+org.tizen.myplace bt-service::public -w---- ------
+org.tizen.myplace bt-service::platform rw---- ------
+
+org.tizen.myplace resman::db rw---- ------
+org.tizen.myplace stest-service -w---- ------
+org.tizen.myplace data-provider-master rw---- ------
+org.tizen.myplace org.tizen.myplace::private rwx--- ------
+org.tizen.myplace secure-storage::pkcs12 rw---- ------
+org.tizen.myplace isf::manager rw---- ------
+
+org.tizen.myplace locationfw::client rwx--- ------
+connman org.tizen.myplace rwx--- ------

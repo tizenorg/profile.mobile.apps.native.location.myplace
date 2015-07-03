@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Аяқталды"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Тоқтату"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Бәрін бөлектеу"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Менің орындарым"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Қосу"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d таңдалды"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Офис"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Аты"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Карта"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Таңдау"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Қосу мүмкін емес."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Жоқ"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Қолданыста бар."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Ондай есім жоқ"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Орын туралы ақпаратты қажет ететін бағдарламаларды пайдалану үшін, таңдаулы орындарды сақтау."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Үй парағы"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Көлік"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Құрылғы сақталған орындарда тұрғаныңызды анықтаған кезде, карталарды, Wi-Fi немесе Bluetooth құрылғыларын пайдаланып, сізді сәйкес ақпаратпен және қызметтермен қамтамасыз етеді."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Әдіс таңдау"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Жою"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Орын қосу"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Орын атауы бұрыннан пайдаланылуда."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Орынды өңдеу"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Таңдалмады"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Нәтиже жоқ"
+

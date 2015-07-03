@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "完了"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "キャンセル"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "全て選択"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "マイプレイス"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "追加"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d件選択"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "会社"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "名前"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "マップ"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "選択"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "追加不可"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "なし"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "既に登録されています。"
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "名前なし"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "お気に入りの場所を保存して、位置情報を必要とするアプリケーションで利用することができます。"
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "自宅"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "クルマ"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "ユーザーが登録した場所にいることを端末が認識すると、マップ、Wi-Fi、またはBluetoothを介して関連情報やサービスを提供します。"
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "手段を選択"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "削除"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "場所を追加"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "この場所名は既に使用されています。"
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "場所を編集"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Not selected"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "検索結果がありません"
+

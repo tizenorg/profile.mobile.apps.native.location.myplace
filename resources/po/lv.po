@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Gatavs"
+
+msgid "IDS_COM_SK_OK"
+msgstr "Labi"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Atcelt"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Izv. visu"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Manas vietas"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Pievienot"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "Izvēlēts: %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Birojs"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Vārds"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Karte"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Atlasīt"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Nevar pievienot."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Nav"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Jau pastāv."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Nav vārda"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Saglabājiet savas izlases atrašanās vietas, lai tās varētu izmantot ar programmām, kurām nepieciešama atrašanās vietas informācija."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Mājās"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Automašīna"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Jūsu ierīce nodrošinās atbilstošo informāciju un pakalpojumus, izmantojot kartes, Wi-Fi vai Bluetooth savienojumu, kad tā noteiks, ka atrodaties saglabātajās vietās."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Izvēlēties metodi"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Dzēst"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Piev. vietu"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Vietas nosaukums jau tiek lietots."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Rediģēt vietu"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Nav atlasīts"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nav atrasts neviens rezultāts"
+

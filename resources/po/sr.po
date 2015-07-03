@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Gotovo"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Otkaži"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Izaberi sve"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Moja mesta"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Dodaj"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "Izabrano je %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Kancelarija"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Ime"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Mapa"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Izaberi"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Nemoguće dodati."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Nema"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Već postoji."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Nema imena"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Sačuvaj omiljene lokacije koje će se koristiti sa aplikacijama koje zahtevaju informacije o lokaciji."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Početna strana"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Automobil"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Kada prepozna da se nalaziš na sačuvanoj lokaciji, uređaj će ti obezbediti odgovarajuće informacije i usluge putem mapa, Wi-Fi ili Bluetooth veze."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Izaberi način"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Izbriši"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Dodaj mesto"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Naziv mesta je već u upotrebi."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Izmeni mesto"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Nije izabrano"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nema rezultata"
+

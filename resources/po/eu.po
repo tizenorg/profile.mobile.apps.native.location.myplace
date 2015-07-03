@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Amaituta"
+
+msgid "IDS_COM_SK_OK"
+msgstr "Ados"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Ezeztatu"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Hautatu denak"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Nire tokiak"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Gehitu"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d aukeratuta"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Bulegoa"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Izena"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Mapa"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Aukeratu"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Ezin da gehitu"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Bat ere ez"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Dagoeneko badago"
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Izenik gabe"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Gorde zure gogoko kokapenak kokapen informazioa behar duten aplikazioekin erabiltzeko."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Hasiera orria"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Autoa"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Gordetako kokapen batean zaudela hautematen duenean, gailuak informazio eta zerbitzu erabilgarriak eskainiko dizkizu mapak, Wi-Fi edo Bluetooth konexioak erabilita."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Aukeratu metodoa"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Ezabatu"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Gehitu tokia"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Leku izen hori erabili da jada."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Editatu tokia"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Ez da hautatu"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Ez da emaitzarik aurkitu"
+

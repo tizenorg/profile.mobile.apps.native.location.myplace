@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Hotovo"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Zrušiť"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Vybrať všetky"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Moje miesta"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Pridať"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "Vybraté: %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Kancelária"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Meno"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Mapa"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Vybrať"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Nedá sa pridať."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Žiadny"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Už existuje."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Žiadny názov"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Uložte obľúbené polohy na použitie s aplikáciami, ktoré vyžadujú lokalizačné informácie."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Domov"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Automobil"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Keď zariadenie rozpozná, že sa nachádzate v uložených miestach, bude poskytovať relevantné informácie a služby pomocou máp, spojenia Wi-Fi alebo Bluetooth."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Vybrať metódu"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Odstrániť"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Prid. miesta"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Názov miesta sa už používa."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Úprava miesta"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Nevybraté"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nenašli sa žiadne výsledky"
+

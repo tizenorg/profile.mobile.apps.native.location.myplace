@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "완료"
+
+msgid "IDS_COM_SK_OK"
+msgstr "확인"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "취소"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "모두 선택"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "내 장소"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "추가"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d개 선택"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "회사"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "이름"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "지도"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "블루투스"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "선택"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "추가할 수 없습니다."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "설정 안 함"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "동일한 항목이 있습니다."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "이름이 없습니다"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "위치정보가 필요한 여러 애플리케이션을 간편하게 사용하려면 즐겨찾는 위치를 미리 저장하세요."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "홈"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "자동차"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "지도, Wi-Fi 또는 블루투스를 사용하여 내가 저장된 위치에 있는 것이 인식되면, 관련 정보 및 서비스를 제공합니다."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "방법 선택"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "삭제"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "장소 추가"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "사용 중인 장소 이름입니다."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "장소 편집"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "선택 안 됨"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "검색 결과가 없습니다"
+

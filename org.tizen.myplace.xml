@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.myplace" version="1.0.0" install-location="internal-only">
+	<label>My places</label>
+	<author email="youngae.kang@samsung.com" href="www.samsung.com">Youngae kang</author>
+	<author email="jongmun.woo@samsung.com" href="www.samsung.com">JongMun Woo</author>
+	<description>MyPlace application</description>
+	<privileges>
+		<privilege>http://tizen.org/privilege/application.launch</privilege>
+		<privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+		<privilege>http://tizen.org/privilege/location</privilege>
+		<privilege>http://tizen.org/privilege/location.enable</privilege>
+		<privilege>http://tizen.org/privilege/packagemanager.info</privilege>
+		<privilege>http://tizen.org/privilege/haptic</privilege>
+		<privilege>http://tizen.org/privilege/network.get</privilege>
+		<privilege>http://tizen.org/privilege/network.profile</privilege>
+		<privilege>http://tizen.org/privilege/network.set</privilege>
+		<privilege>http://tizen.org/privilege/bluetooth</privilege>
+		<privilege>http://tizen.org/privilege/bluetooth.admin</privilege>
+		<privilege>http://tizen.org/privilege/internet</privilege>
+	</privileges>
+	<ui-application appid="org.tizen.myplace" exec="/usr/apps/org.tizen.myplace/bin/myplace" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+		<label>My places</label>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/configure/myplace"/>
+		</application-service>
+	</ui-application>
+</manifest>

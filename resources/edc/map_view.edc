@@ -1,0 +1,63 @@
+
+collections {
+    base_scale: 1.7;
+    images {
+        image: "settings_ic_location.png" COMP;
+    }
+    group { name: "map_object";
+        parts {
+            part {
+                name: "setting_ic_location";
+                type: IMAGE;
+                scale: 1;
+                mouse_events: 0;
+                description {
+                    state: "default" 0.0;
+                    visible: 1;
+                    min: 60 60;
+                    max: 60 60;
+                    fixed: 1 1;
+                    align: 0.0 0.0;
+                    color_class: F060L1;
+                    image { normal: "settings_ic_location.png"; }
+                }
+                description {
+                    state: "press" 0.0;
+                    inherit: "default" 0.0;
+                    color_class: F060L1P;
+                }
+                description {
+                    state: "dim" 0.0;
+                    inherit: "default" 0.0;
+                    color_class: F060L1D;
+                }
+            }
+        }
+        programs {
+            program {
+                name: "icon_press";
+                signal: "press";
+                source: "button";
+                script {
+                    set_state(PART:"setting_ic_location", "press", 0.0);
+                }
+            }
+            program {
+                name: "icon_dim";
+                signal: "dim";
+                source: "button";
+                script {
+                    set_state(PART:"setting_ic_location", "dim", 0.0);
+                }
+            }
+            program {
+                name: "icon_normal";
+                signal: "normal";
+                source: "button";
+                script {
+                    set_state(PART:"setting_ic_location", "default", 0.0);
+                }
+            }
+        }
+    }
+}

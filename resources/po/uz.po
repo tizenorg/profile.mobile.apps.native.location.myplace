@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Bajarildi"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Bekor qilish"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Barchasini tanlash"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "My places"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Qo‘shish"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d tanlandi"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Ofis"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Ism"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Xarita"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Tanlash"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Qo‘shib bo‘lmaydi."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Hech qaysi"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Avvaldan mavjud."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Nom yo‘q"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Joylashuv haqidagi ma’lumotlarni talab qiluvchi ilovalar bilan foydalanish uchun sevimli joylashuvlaringizni saqlang."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Home"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Avtomobil"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Qurilmangiz saqlangan joydaligingizni aniqlasa, xaritalar, Wi-Fi yoki Bluetooth yordamida tegishli ma’lumot va xizmatlarni taqdim etadi."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Usulni tanlash"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "O'chirish"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Joy qo‘shish"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Joy nomi avvaldan foydalanilmoqda."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Joy tahriri"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Tanlanmagan"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Natijalar topilmadi"
+

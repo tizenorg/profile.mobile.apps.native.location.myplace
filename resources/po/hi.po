@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "पूर्ण"
+
+msgid "IDS_COM_SK_OK"
+msgstr "ओके"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "रद्द"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "सभी चुनें"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "मेरे स्थान"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "जोड़ें"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d चयनित"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "ऑफिस"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "नाम"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "मानचित्र"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "ब्लूटूथ"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "चुनें"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "जोड़ने में असमर्थ।"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "कुछ नहीं"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "पहले से ही मौजूद।"
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "नाम नहीं"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "स्थान जानकारी की आवश्यकता वाले एप्लीकेशंस के साथ उपयोग के लिए अपने पसंदीदा स्थान सुरक्षित करें।"
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "होम"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "कार"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "आप सुरक्षित किए गए स्थानों पर हैं, इसकी पहचान करने पर आपका डिवाइस मानचित्र, Wi-Fi या ब्लूटूथ का उपयोग करके संबंधित जानकारी और सेवाएँ प्रदान करेगा।"
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "पद्धति चुनें"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "हटाएँ"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "स्थान जोड़ें"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "स्थान नाम पहले से उपयोग में है।"
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "स्थान संपादित करें"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "चयनित नही हुआ"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "कोई परिणाम नहीं मिले"
+

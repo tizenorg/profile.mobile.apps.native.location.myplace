@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "完成"
+
+msgid "IDS_COM_SK_OK"
+msgstr "確定"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "取消"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "選擇全部"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "我的地點"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "加入"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "已選擇 %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "辦公室"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "名稱"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "地圖"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "藍牙"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "選擇"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "無法加入。"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "無"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "已存在。"
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "無名稱"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "為需要位置資訊的應用程式儲存最愛地點。"
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Home"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "汽車"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "當裝置識別您處於已儲存的位置時，將使用地圖、Wi-Fi 或藍牙提供相關資訊與服務。"
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "選擇方法"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "刪除"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "加入地點"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "地點名稱已被使用。"
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "編輯地點"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "未選擇"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "無搜尋結果"
+

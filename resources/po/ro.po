@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Efectuat"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Anulare"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Selectare toate"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Locaţiile mele"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Adăugare"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d selectate"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Birou"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Nume"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Hartă"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Selectare"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Imposibil de adăugat"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Nici una"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Există deja."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Nici un nume"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Salvaţi locaţiile preferate pentru utilizarea cu aplicaţii care necesită informaţii despre locaţie."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "La început"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Maşină"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Dispozitivul vă va oferi informaţii şi servicii relevante utilizând hărţile, Wi-Fi sau Bluetooth în momentul în care va recunoaşte că vă aflaţi în locaţii salvate."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Selectare metodă"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Ştergere"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Adăugare loc."
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Numele locaţiei este deja utilizat."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Edit. locaţie"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Neselectat"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nu au fost găsite rezultate"
+

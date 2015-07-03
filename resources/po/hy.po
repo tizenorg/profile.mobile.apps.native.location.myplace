@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Կատարված է"
+
+msgid "IDS_COM_SK_OK"
+msgstr "Ընդունել"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Չեղարկել"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Ընտրել բոլորը"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Իմ վայրերը"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Ավելացնել"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d ընտրված"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Գրասենյակ"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Անուն"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Քարտեզ"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Ընտրել"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Անհնար է ավելացնել:"
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Չկա"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Արդեն գոյություն ունի:"
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Անուն չկա"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Պահպանեք Ձեր սիրած տեղավայրերն այն ծրագրերի միջոցով օգտագործելու համար, որոնք տեղի մասին տեղեկատվություն են պահանջում:"
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Սկիզբ"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Մեքենա"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Ձեր սարքը համապատասխան տեղեկություններ ու ծառայություններ կտրամադրի քարտեզների, Wi-Fi-ի կամ Bluetooth-ի միջոցով, երբ ճանաչի, որ գտնվում եք պահպանված տեղերում:"
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Ընտրել եղանակ"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Ջնջել"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Ավելցնել վայր"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Վայրի անուն արդեն գործածվում է:"
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Խմբագրել վայր"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Ընտրված չէ"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Արդյունքներ չեն գտնվել"
+
