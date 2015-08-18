@@ -17,7 +17,7 @@ collections {
                     min: 60 60;
                     max: 60 60;
                     fixed: 1 1;
-                    align: 0.0 0.0;
+                    align: 0.5 0.5;
                     color_class: F060L1;
                     image { normal: "settings_ic_location.png"; }
                 }

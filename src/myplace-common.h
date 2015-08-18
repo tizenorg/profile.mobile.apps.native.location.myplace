@@ -37,6 +37,7 @@ extern "C" {
 #include <stdio.h>
 #include <string.h>
 #include <efl_extension.h>
+#include <system_info.h>
 #include <locations.h>
 
 #include <wifi.h>
@@ -206,12 +207,11 @@ typedef struct appdata
 	Elm_Object_Item *gi_del_all;
 
 	Elm_Genlist_Item_Class *itc_myplace;
-	Elm_Genlist_Item_Class *itc_geofence;
 
 	Elm_Object_Item *nf_it;
 
 	int is_geofence;
-	int last_index;
+	long int last_index;
 	int current_index;
 	char *caller;
 

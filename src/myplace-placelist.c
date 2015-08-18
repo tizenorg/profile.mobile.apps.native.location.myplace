@@ -121,10 +121,14 @@ Evas_Object *create_win(const char *name)
 		elm_win_title_set(eo, name);
 		elm_win_indicator_mode_set(eo, ELM_WIN_INDICATOR_SHOW); /* indicator allow */
 		elm_win_indicator_opacity_set(eo, ELM_WIN_INDICATOR_OPAQUE);
-//		elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE);	// block for 3.0 build
+		/* elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE); */		/* block for 3.0 build */
 		elm_win_conformant_set(eo, EINA_TRUE);
 		evas_object_smart_callback_add(eo, "delete,request", win_del, NULL);
 		elm_win_autodel_set(eo, EINA_TRUE);
+		if (elm_win_wm_rotation_supported_get(eo)) {
+			int rots[4] = { 0, 90, 180, 270 };
+			elm_win_wm_rotation_available_rotations_set(eo, (const int *)(&rots), 4);
+		}
 	}
 	evas_object_show(eo);
 
@@ -382,17 +386,17 @@ static char *myplace_discription_text_get(void *data, Evas_Object *obj, const ch
 
 char *myplace_place_text_get(void *data, Evas_Object *obj, const char *part)
 {
-	int index = (int) data;
+	long int index = (long int) data;
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
 	char geo_method[50] = {};
 
 	if (ad == NULL)
 		return NULL;
 
-	if (!g_strcmp0(part, "elm.text.main.left.top"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(ad->placelist[index]->name);
 
-	if (!g_strcmp0(part, "elm.text.sub.left.bottom")) {
+	if (!g_strcmp0(part, "elm.text.sub")) {
 		if (ad->placelist[index]->method_map == true) {
 			if (ad->placelist[index]->method_wifi == true) {
 				if (ad->placelist[index]->method_bt == true)
@@ -435,7 +439,7 @@ static Evas_Object *myplace_placelist_create_gl(Evas_Object *parent, void *data)
 	Elm_Genlist_Item_Class *itc_discription;
 	Elm_Object_Item *gi_discription;
 
-	int i;
+	long int i;
 
 	genlist = elm_genlist_add(parent);
 	elm_genlist_mode_set(genlist, ELM_LIST_COMPRESS);
@@ -447,7 +451,7 @@ static Evas_Object *myplace_placelist_create_gl(Evas_Object *parent, void *data)
 	itc_discription = elm_genlist_item_class_new();
 	if (itc_discription == NULL)
 		return NULL;
-	itc_discription->item_style = "multiline_sub";
+	itc_discription->item_style = "multiline";
 	itc_discription->func.text_get = myplace_discription_text_get;
 	itc_discription->func.content_get = NULL;
 	itc_discription->func.state_get = NULL;
@@ -461,7 +465,7 @@ static Evas_Object *myplace_placelist_create_gl(Evas_Object *parent, void *data)
 		ad->placelist[i]->itc_myplace = elm_genlist_item_class_new();
 		if (ad->placelist[i]->itc_myplace == NULL)
 			return NULL;
-		ad->placelist[i]->itc_myplace->item_style = "2line.top";
+		ad->placelist[i]->itc_myplace->item_style = "type1";
 		ad->placelist[i]->itc_myplace->func.text_get = myplace_place_text_get;
 		ad->placelist[i]->itc_myplace->func.content_get = NULL;
 		ad->placelist[i]->itc_myplace->func.state_get = NULL;
@@ -556,8 +560,6 @@ void myplace_placelist_cb(void *data)
 	elm_object_style_set(more_button, "naviframe/more/default");
 	evas_object_smart_callback_add(more_button, "clicked", myplace_more_button, ad);
 	elm_object_item_part_content_set(nf_it, "toolbar_more_btn", more_button);
-
-	elm_genlist_item_class_free(ad->itc_geofence);
 
 	for (i = 0; ad->last_index >= i; i++)
 		elm_genlist_item_class_free(ad->placelist[i]->itc_myplace);

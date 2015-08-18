@@ -34,6 +34,22 @@
 #include "myplace-detailinfo.h"
 #include "myplace-mapview.h"
 
+static bool __is_support_wifi()
+{
+	const char *wifi_feature = "http://tizen.org/feature/network.wifi";
+	bool is_wifi_supported = false;
+	system_info_get_platform_bool(wifi_feature, &is_wifi_supported);
+	return is_wifi_supported;
+}
+
+static bool __is_support_bluetooth()
+{
+	const char *bluetooth_feature = "http://tizen.org/feature/network.bluetooth";
+	bool is_bluetooth_supported = false;
+	system_info_get_platform_bool(bluetooth_feature, &is_bluetooth_supported);
+	return is_bluetooth_supported;
+}
+
 void clear_place_method_data(myplace_data *temp)
 {
 	temp->latitude = -1;
@@ -265,7 +281,7 @@ detailinfo_done_cb(void *data, Evas_Object * obj, void *event_info)
 
 		evas_object_data_set(ad->place_genlist, "app_data", ad);
 		ad->placelist[ad->last_index]->itc_myplace = elm_genlist_item_class_new();
-		ad->placelist[ad->last_index]->itc_myplace->item_style = "2line.top";
+		ad->placelist[ad->last_index]->itc_myplace->item_style = "type1";
 		ad->placelist[ad->last_index]->itc_myplace->func.text_get = myplace_place_text_get;
 		ad->placelist[ad->last_index]->itc_myplace->func.content_get = NULL;
 		ad->placelist[ad->last_index]->itc_myplace->func.state_get = NULL;
@@ -314,7 +330,7 @@ static char *myplace_discription_text_get(void *data, Evas_Object *obj, const ch
 
 static char *myplace_fence_group_text_get(void *data, Evas_Object *obj, const char *part)
 {
-	if (!g_strcmp0(part, "elm.text.main"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(P_("IDS_DVBH_HEADER_SELECT_METHOD"));
 
 	return NULL;
@@ -369,6 +385,10 @@ static void editfield_clear_button_clicked_cb(void *data, Evas_Object *obj, void
 	elm_entry_entry_set(entry, "");
 }
 
+static void editfield_done_cb(void *data, Evas_Object *obj, void *event_info)
+{
+	elm_entry_input_panel_hide(obj);
+}
 
 static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj, const char *part)
 {
@@ -393,7 +413,7 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 			elm_entry_entry_set(entry, ad->selected_place->name);
 		else {
 			char guide_text[20] = {};
-			snprintf(guide_text, sizeof(guide_text), "My place %d", ad->last_index + 2);
+			snprintf(guide_text, sizeof(guide_text), "My place %ld", ad->last_index + 2);
 			elm_object_part_text_set(entry, "guide", strdup(guide_text));
 		}
 
@@ -408,7 +428,9 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 		evas_object_smart_callback_add(entry, "unfocused", editfield_unfocused_cb, editfield);
 		evas_object_smart_callback_add(entry, "changed", editfield_changed_cb, editfield);
 		evas_object_smart_callback_add(entry, "preedit,changed", editfield_changed_cb, editfield);
+		evas_object_smart_callback_add(entry, "activated", editfield_done_cb, ad);
 		elm_object_part_content_set(editfield, "elm.swallow.content", entry);
+		elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
 
 		button = elm_button_add(editfield);	elm_object_style_set(button, "editfield_clear");
 		evas_object_smart_callback_add(button, "clicked", editfield_clear_button_clicked_cb, entry);
@@ -426,10 +448,10 @@ static char *myplace_select_map_text_get(void *data, Evas_Object *obj, const cha
 	if (ad == NULL)
 		return NULL;
 
-	if (!g_strcmp0(part, "elm.text.main.left.top"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(P_("IDS_LBS_BODY_MAP"));
 
-	if (!g_strcmp0(part, "elm.text.sub.left.bottom")) {
+	if (!g_strcmp0(part, "elm.text.sub")) {
 		if (ad->selected_place->address == NULL)
 			return strdup(P_("IDS_COM_BODY_NONE"));
 		else
@@ -445,10 +467,10 @@ static char *myplace_select_wifi_text_get(void *data, Evas_Object *obj, const ch
 	if (ad == NULL)
 		return NULL;
 
-	if (!g_strcmp0(part, "elm.text.main.left.top"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(P_("IDS_COM_BODY_WI_FI"));
 
-	if (!g_strcmp0(part, "elm.text.sub.left.bottom")) {
+	if (!g_strcmp0(part, "elm.text.sub")) {
 		if (ad->selected_place->wifi_bssid == NULL)
 			return strdup(P_("IDS_COM_BODY_NONE"));
 		else
@@ -464,10 +486,10 @@ static char *myplace_select_bt_text_get(void *data, Evas_Object *obj, const char
 	if (ad == NULL)
 		return NULL;
 
-	if (!g_strcmp0(part, "elm.text.main.left.top"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(P_("IDS_COM_BODY_BLUETOOTH"));
 
-	if (!g_strcmp0(part, "elm.text.sub.left.bottom")) {
+	if (!g_strcmp0(part, "elm.text.sub")) {
 		if (ad->selected_place->bt_mac_address == NULL)
 			return strdup(P_("IDS_COM_BODY_NONE"));
 		else
@@ -499,7 +521,7 @@ static void delbutton_dim_cb(void *data, Evas_Object *obj, void *event_info)
 static void del_button_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
-	int method = (int) data;
+	long int method = (long int) data;
 
 	if (ad == NULL)
 		return;
@@ -531,9 +553,11 @@ static void del_button_cb(void *data, Evas_Object *obj, void *event_info)
 static Evas_Object *gl_button_content_get_cb(void *data, Evas_Object *obj, const char *part)
 {
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
-	int method = (int) data;
+	if (ad == NULL) return NULL;
 
-	if (!strcmp(part, "elm.icon.right")) {
+	long int method = (long int) data;
+
+	if (!strcmp(part, "elm.swallow.icon.1")) {
 		if ((method == MYPLACE_METHOD_MAP && ad->selected_place->method_map == true) ||
 			(method == MYPLACE_METHOD_WIFI && ad->selected_place->method_wifi == true) ||
 			(method == MYPLACE_METHOD_BT && ad->selected_place->method_bt == true)) {
@@ -710,16 +734,16 @@ static void select_bt_method_cb(void *data, Evas_Object *obj, void *event_info)
 	app_control_destroy(app_control);
 }
 
-static Evas_Object *create_name_view(myplace_app_data *ad, Evas_Object* obj)
+static Evas_Object *create_detail_view(myplace_app_data *ad)
 {
-	Evas_Object *gen_list;
 	Elm_Genlist_Item_Class *gen_name, *gen_description;
-	Elm_Object_Item *gi_description;
+	Elm_Genlist_Item_Class *gen_fence_group, *gen_map_method = NULL, *gen_wifi_method, *gen_bt_method;
+	Elm_Object_Item *gi_description, *gi_method;
 
-	gen_list = elm_genlist_add(obj);
-	elm_genlist_mode_set(gen_list, ELM_LIST_COMPRESS);
-	elm_layout_theme_set(gen_list, "genlist", "base", "default");
-	evas_object_data_set(gen_list, "app_data", ad);
+	ad->fence_genlist = elm_genlist_add(ad->nf);
+	elm_genlist_mode_set(ad->fence_genlist, ELM_LIST_COMPRESS);
+	evas_object_data_set(ad->fence_genlist, "app_data", ad);
+	elm_layout_theme_set(ad->fence_genlist, "genlist", "base", "default");
 
 	/* Place Name */
 	gen_name = elm_genlist_item_class_new();
@@ -730,54 +754,43 @@ static Evas_Object *create_name_view(myplace_app_data *ad, Evas_Object* obj)
 	gen_name->func.content_get = myplace_place_name_content_get;
 	gen_name->func.state_get = NULL;
 	gen_name->func.del = NULL;
-	elm_genlist_item_append(gen_list, gen_name, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
+	elm_genlist_item_append(ad->fence_genlist, gen_name, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
 
 	/* description */
 	gen_description = elm_genlist_item_class_new();
 	if (gen_description == NULL)
 		return NULL;
-	gen_description->item_style = "multiline_sub";
+	gen_description->item_style = "multiline";
 	gen_description->func.text_get = myplace_discription_text_get;
 	gen_description->func.content_get = NULL;
 	gen_description->func.state_get = NULL;
 	gen_description->func.del = NULL;
-	gi_description = elm_genlist_item_append(gen_list, gen_description, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+	gi_description = elm_genlist_item_append(ad->fence_genlist, gen_description, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
 
 	elm_genlist_item_select_mode_set(gi_description, ELM_OBJECT_SELECT_MODE_NONE);
 
-	evas_object_show(gen_list);
-
 	elm_genlist_item_class_free(gen_name);
 	elm_genlist_item_class_free(gen_description);
-
-	return gen_list;
-}
-
-static Evas_Object *create_method_view(myplace_app_data *ad, Evas_Object* obj)
-{
-	Elm_Genlist_Item_Class *gen_fence_group, *gen_map_method = NULL, *gen_wifi_method, *gen_bt_method;
-
-	ad->fence_genlist = elm_genlist_add(obj);
-	elm_genlist_mode_set(ad->fence_genlist, ELM_LIST_COMPRESS);
-	evas_object_data_set(ad->fence_genlist, "app_data", ad);
 
 	/* fence Group */
 	gen_fence_group = elm_genlist_item_class_new();
 	if (gen_fence_group == NULL)
 		return NULL;
-	gen_fence_group->item_style = "groupindex";
+	gen_fence_group->item_style = "group_index";
 	gen_fence_group->func.text_get = myplace_fence_group_text_get;
 	gen_fence_group->func.content_get = NULL;
 	gen_fence_group->func.state_get = NULL;
 	gen_fence_group->func.del = NULL;
-	elm_genlist_item_append(ad->fence_genlist, gen_fence_group, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+	gi_method = elm_genlist_item_append(ad->fence_genlist, gen_fence_group, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+
+	elm_genlist_item_select_mode_set(gi_method, ELM_OBJECT_SELECT_MODE_NONE);
 
 	if (ad->selected_place->place_id != PLACE_ID_CAR) {		/* Car doesn't have the Map as UX Guide */
 		/* Map */
 		gen_map_method = elm_genlist_item_class_new();
 		if (gen_map_method == NULL)
 			return NULL;
-		gen_map_method->item_style = "2line.top";
+		gen_map_method->item_style = "type1";
 		gen_map_method->func.text_get = myplace_select_map_text_get;
 		gen_map_method->func.content_get = gl_button_content_get_cb;
 		gen_map_method->func.state_get = NULL;
@@ -789,23 +802,31 @@ static Evas_Object *create_method_view(myplace_app_data *ad, Evas_Object* obj)
 	gen_wifi_method = elm_genlist_item_class_new();
 	if (gen_wifi_method == NULL)
 		return NULL;
-	gen_wifi_method->item_style = "2line.top";
+	gen_wifi_method->item_style = "type1";
 	gen_wifi_method->func.text_get = myplace_select_wifi_text_get;
 	gen_wifi_method->func.content_get = gl_button_content_get_cb;
 	gen_wifi_method->func.state_get = NULL;
 	gen_wifi_method->func.del = NULL;
 	ad->gi_wifi_method = elm_genlist_item_append(ad->fence_genlist, gen_wifi_method, (void *)MYPLACE_METHOD_WIFI, NULL, ELM_GENLIST_ITEM_TREE, select_wifi_method_cb, ad);
+	if (__is_support_wifi() == TRUE)
+		elm_object_item_disabled_set(ad->gi_wifi_method, EINA_FALSE);
+	else
+		elm_object_item_disabled_set(ad->gi_wifi_method, EINA_TRUE);
 
 	/* BT */
 	gen_bt_method = elm_genlist_item_class_new();
 	if (gen_bt_method == NULL)
 		return NULL;
-	gen_bt_method->item_style = "2line.top";
+	gen_bt_method->item_style = "type1";
 	gen_bt_method->func.text_get = myplace_select_bt_text_get;
 	gen_bt_method->func.content_get = gl_button_content_get_cb;
 	gen_bt_method->func.state_get = NULL;
 	gen_bt_method->func.del = NULL;
 	ad->gi_bt_method = elm_genlist_item_append(ad->fence_genlist, gen_bt_method, (void *)MYPLACE_METHOD_BT, NULL, ELM_GENLIST_ITEM_TREE, select_bt_method_cb, ad);
+	if (__is_support_bluetooth() == TRUE)
+		elm_object_item_disabled_set(ad->gi_bt_method, EINA_FALSE);
+	else
+		elm_object_item_disabled_set(ad->gi_bt_method, EINA_TRUE);
 
 	evas_object_show(ad->fence_genlist);
 
@@ -817,40 +838,7 @@ static Evas_Object *create_method_view(myplace_app_data *ad, Evas_Object* obj)
 	elm_genlist_item_class_free(gen_bt_method);
 
 	return ad->fence_genlist;
-}
 
-
-static Evas_Object *create_detail_view(myplace_app_data *ad)
-{
-	Evas_Object *main_scroller, *main_box;
-
-	main_scroller = elm_scroller_add(ad->nf);
-	elm_scroller_bounce_set(main_scroller, EINA_FALSE, EINA_TRUE);
-	evas_object_size_hint_weight_set(main_scroller, EVAS_HINT_EXPAND, 0.0);
-	evas_object_size_hint_align_set(main_scroller, EVAS_HINT_FILL, 0.0);
-
-	evas_object_show(main_scroller);
-
-	main_box = elm_box_add(main_scroller);
-	evas_object_size_hint_align_set(main_box, EVAS_HINT_FILL, 0.0);
-	evas_object_size_hint_weight_set(main_box, EVAS_HINT_EXPAND, 0.0);
-	evas_object_show(main_box);
-
-	Evas_Object *name_layout = create_name_view(ad, main_box);
-	evas_object_size_hint_weight_set(name_layout, EVAS_HINT_EXPAND, 0.45);
-	evas_object_size_hint_align_set(name_layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	evas_object_show(name_layout);
-	elm_box_pack_end(main_box, name_layout);
-
-	Evas_Object *method_layout = create_method_view(ad, main_box);
-	evas_object_size_hint_weight_set(method_layout, EVAS_HINT_EXPAND, 0.55);
-	evas_object_size_hint_align_set(method_layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	evas_object_show(method_layout);
-	elm_box_pack_end(main_box, method_layout);
-
-	elm_object_content_set(main_scroller, main_box);
-
-	return main_scroller;
 }
 
 void placeinfo_cb(void *data, Evas_Object *obj, void *event_info)
@@ -858,7 +846,7 @@ void placeinfo_cb(void *data, Evas_Object *obj, void *event_info)
 	LS_FUNC_ENTER
 
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
-	int index = (int)data;
+	long int index = (long int)data;
 
 	Evas_Object *cancel_btn, *done_btn;
 	Elm_Object_Item *nf_it = NULL;

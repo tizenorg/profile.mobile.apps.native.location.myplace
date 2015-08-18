@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Τέλος"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Άκυρο"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Επιλογή όλων"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Οι τοποθεσίες μου"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Προσθήκη"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "Επιλέχθηκαν %d"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Γραφείο"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Όνομα"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Χάρτης"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Επιλογή"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Δεν είναι δυνατή η προσθήκη."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Κανένα"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Υπάρχει ήδη."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Κανένα όνομα"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Αποθηκεύστε τις αγαπημένες σας τοποθεσίες για να τις χρησιμοποιείτε σε εφαρμογές που απαιτούν πληροφορίες τοποθεσίας."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Αρχική"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Οδήγηση"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Η συσκευή σας θα παρέχει σχετικές πληροφορίες και υπηρεσίες, χρησιμοποιώντας τους χάρτες, το Wi-Fi ή το Bluetooth, όταν αναγνωρίζει ότι βρίσκεστε σε κάποια από τις αποθηκευμένες τοποθεσίες σας."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Επιλογή μεθόδου"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Διαγραφή"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Προσθ. μέρους"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Το όνομα του μέρους χρησιμοποιείται ήδη."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Επεξ. μέρους"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Δεν έχει επιλεγεί"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+

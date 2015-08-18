@@ -18,7 +18,7 @@
 		<privilege>http://tizen.org/privilege/bluetooth.admin</privilege>
 		<privilege>http://tizen.org/privilege/internet</privilege>
 	</privileges>
-	<ui-application appid="org.tizen.myplace" exec="/usr/apps/org.tizen.myplace/bin/myplace" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+	<ui-application appid="org.tizen.myplace" exec="/usr/apps/org.tizen.myplace/bin/myplace" launch_mode="caller" nodisplay="true" multiple="false" type="capp" taskmanage="false">
 		<label>My places</label>
 		<application-service>
 			<operation name="http://tizen.org/appcontrol/operation/configure/myplace"/>

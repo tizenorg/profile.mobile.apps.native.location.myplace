@@ -29,11 +29,6 @@
 
 #include "myplace-common.h"
 
-static void timeout_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	evas_object_del(data);
-}
-
 Evas_Object *create_popup(Evas_Object *parent, char *style, char *text)
 {
 	Evas_Object *popup;
@@ -65,7 +60,6 @@ void toast_popup(myplace_app_data *ad, char *str)
 	popup = create_popup(ad->nf, "toast", str);
 	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	elm_popup_timeout_set(popup, 2.0);
-	evas_object_smart_callback_add(popup, "timeout", timeout_cb, NULL);
 
 	evas_object_show(popup);
 }

@@ -12,6 +12,7 @@ ExcludeArch: %{arm} %ix86 x86_64
 
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(capi-appfw-application)
+BuildRequires: pkgconfig(capi-system-info)
 BuildRequires: pkgconfig(efl-extension)
 BuildRequires: pkgconfig(ui-gadget-1)
 BuildRequires: pkgconfig(elementary)
@@ -68,7 +69,6 @@ rm -rf %{buildroot}
 
 %files
 %manifest org.tizen.myplace.manifest
-/etc/smack/accesses.d/org.tizen.myplace.efl
 %defattr(-,root,root,-)
 %{appdir}/*
 %defattr(-,root,root,757)

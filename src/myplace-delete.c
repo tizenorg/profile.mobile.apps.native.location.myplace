@@ -54,13 +54,13 @@ static void __update_title(myplace_app_data *ad)
 
 static char *delete_name_text_get(void *data, Evas_Object *obj, const char *part)
 {
-	int index = (int)data;
+	long int index = (long int)data;
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
 
 	if (ad == NULL)
 		return NULL;
 
-	if (!g_strcmp0(part, "elm.text.main.left")) {
+	if (!g_strcmp0(part, "elm.text")) {
 		if (index < 0)
 			return strdup(P_("IDS_COM_BODY_SELECT_ALL"));
 		else
@@ -73,6 +73,9 @@ static Eina_Bool get_check_all(myplace_app_data *ad)
 {
 	Eina_Bool sel_all = EINA_TRUE;
 	int i;
+
+	if (ad->last_index + 1 == DEFAULT_PLACE_COUNT)
+		return EINA_FALSE;
 
 	for (i = DEFAULT_PLACE_COUNT; i <= ad->last_index; i++) {
 		if (ad->placelist[i]->del_check == EINA_FALSE)
@@ -118,7 +121,7 @@ static Evas_Object *delete_all_check_get(void *data, Evas_Object *obj, const cha
 	if (ad == NULL)
 		return NULL;
 
-	if (!strcmp(part, "elm.icon.right")) {
+	if (!strcmp(part, "elm.swallow.icon.1")) {
 		all_check = elm_check_add(obj);
 
 		sel_all = get_check_all(ad);
@@ -173,7 +176,7 @@ static void set_check_by_genlist_cb(void *data, Evas_Object *obj, void *event_in
 {
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
 	Evas_Object *all_check = evas_object_data_get(obj, "all_check");
-	int index = (int)data;
+	long int index = (long int)data;
 
 	Elm_Object_Item *nf_it = event_info;
 	elm_genlist_item_selected_set(nf_it, EINA_FALSE);
@@ -198,7 +201,7 @@ static void set_check_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	Evas_Object *all_check = evas_object_data_get(obj, "all_check");
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
-	int index = (int)data;
+	long int index = (long int)data;
 
 	if (ad == NULL)
 		return;
@@ -217,7 +220,7 @@ static void set_check_cb(void *data, Evas_Object *obj, void *event_info)
 static Evas_Object *delete_check_get(void *data, Evas_Object *obj, const char *part)
 {
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
-	int index = (int)data;
+	long int index = (long int)data;
 
 	Evas_Object *check = evas_object_data_get(obj, "check");
 	Evas_Object *all_check = evas_object_data_get(obj, "all_check");
@@ -225,7 +228,7 @@ static Evas_Object *delete_check_get(void *data, Evas_Object *obj, const char *p
 	if (ad == NULL)
 		return NULL;
 
-	if (!strcmp(part, "elm.icon.right")) {
+	if (!strcmp(part, "elm.swallow.icon.1")) {
 		check = elm_check_add(obj);
 
 		elm_check_state_set(check, ad->placelist[index]->del_check);
@@ -323,7 +326,7 @@ void myplace_delete_cb(void *data, Evas_Object *obj, void *event_info)
 	Evas_Object *done_btn, *cancel_btn;
 	Evas_Object *check = NULL, *all_check = NULL;
 
-	int i;
+	long int i;
 
 	if (ad->ctx_popup) {
 		evas_object_del(ad->ctx_popup);
@@ -341,7 +344,7 @@ void myplace_delete_cb(void *data, Evas_Object *obj, void *event_info)
 	itc_select_all = elm_genlist_item_class_new();
 	if (itc_select_all == NULL)
 		return;
-	itc_select_all->item_style = "1line";
+	itc_select_all->item_style = "type1";
 	itc_select_all->func.text_get = delete_name_text_get;
 	itc_select_all->func.content_get = delete_all_check_get;
 	itc_select_all->func.state_get = NULL;
@@ -354,7 +357,7 @@ void myplace_delete_cb(void *data, Evas_Object *obj, void *event_info)
 		ad->placelist[i]->itc_delplace = elm_genlist_item_class_new();
 		if (ad->placelist[i]->itc_delplace == NULL)
 			return;
-		ad->placelist[i]->itc_delplace->item_style = "2line.top";
+		ad->placelist[i]->itc_delplace->item_style = "type1";
 		ad->placelist[i]->itc_delplace->func.text_get = myplace_place_text_get;
 		ad->placelist[i]->itc_delplace->func.content_get = delete_check_get;
 		ad->placelist[i]->itc_delplace->func.state_get = NULL;

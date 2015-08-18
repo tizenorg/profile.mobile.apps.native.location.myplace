@@ -98,7 +98,7 @@ static void position_cb(void *data, Evas_Object *map, Elm_Map_Name *name)
 	LS_LOGE("position_cb: lon=%lf, lat=%lf", ad->mapview_place->longitude, ad->mapview_place->latitude);
 
 	if ((ad->mapview_place->longitude != 0) && (ad->mapview_place->latitude != 0)) {
-		elm_map_zoom_set(ad->map, 12);
+		elm_map_zoom_set(ad->map, 16);
 		elm_map_region_bring_in(ad->map, ad->mapview_place->longitude, ad->mapview_place->latitude);
 		showMarker(ad, ad->mapview_place->longitude, ad->mapview_place->latitude);
 
@@ -117,7 +117,7 @@ static void position_cb(void *data, Evas_Object *map, Elm_Map_Name *name)
 
 static void showPosition(myplace_app_data *ad)
 {
-	elm_map_zoom_set(ad->map, 12);
+	elm_map_zoom_set(ad->map, 16);
 	elm_map_region_bring_in(ad->map, ad->mapview_place->longitude, ad->mapview_place->latitude);
 
 	showMarker(ad, ad->mapview_place->longitude, ad->mapview_place->latitude);
@@ -140,7 +140,6 @@ static void position_updated(double latitude, double longitude, double altitude,
 
 static gpointer wait_for_service(void *data)
 {
-	myplace_app_data *ad = (myplace_app_data *)data;
 	int timeout = 0;
 
 	for (; timeout < 30; timeout++) {
@@ -161,9 +160,6 @@ static gpointer wait_for_service(void *data)
 
 	service_enabled = false;
 
-	if (timeout == 30)
-		toast_popup(ad, "No results found.");
-
 	return NULL;
 }
 
@@ -171,7 +167,7 @@ static void showOriginPosition(void *data)
 {
 	myplace_app_data *ad = (myplace_app_data *)data;
 
-	elm_map_zoom_set(ad->map, 12);
+	elm_map_zoom_set(ad->map, 16);
 	elm_map_region_bring_in(ad->map, ad->mapview_place->longitude, ad->mapview_place->latitude);
 
 	showMarker(ad, ad->mapview_place->longitude, ad->mapview_place->latitude);
@@ -186,7 +182,7 @@ static void mapLongPressed(void *data, Evas_Object *obj, void *event_info)
 
 	elm_map_canvas_to_region_convert(ad->map, down->canvas.x, down->canvas.y, &(ad->mapview_place->longitude), &(ad->mapview_place->latitude));
 
-	elm_map_zoom_set(ad->map, 12);
+	elm_map_zoom_set(ad->map, 16);
 	elm_map_region_bring_in(ad->map, ad->mapview_place->longitude, ad->mapview_place->latitude);
 
 	showMarker(ad, ad->mapview_place->longitude, ad->mapview_place->latitude);
@@ -227,8 +223,10 @@ static void searchPressed(void *data, Evas_Object *obj, void *event_info)
 		return;
 	if (elm_entry_entry_get(ad->map_entry) == NULL)
 		toast_popup(ad, P_("IDS_LBS_NPBODY_NO_RESULTS_FOUND"));
-	else
+	else {
 		elm_map_name_add(ad->map, elm_entry_entry_get(obj), 0, 0, position_cb, ad);
+		elm_entry_input_panel_hide(ad->map_entry);
+	}
 
 	if (manager != NULL) {
 		location_manager_stop(manager);
@@ -365,13 +363,11 @@ Evas_Object *create_gpsbutton_layout(void *data, Evas_Object *obj)
 	evas_object_repeat_events_set(gps_button, EINA_FALSE);
 	evas_object_propagate_events_set(gps_button, EINA_FALSE);
 	evas_object_size_hint_weight_set(gps_button, 0.1, 0.0);
-	evas_object_size_hint_align_set(gps_button, 0.0, 0.3);
+	evas_object_size_hint_align_set(gps_button, 0.5, 0.5);
 	evas_object_show(gps_button);
 
 	Evas_Object *layout = elm_layout_add(gps_button);
 	elm_layout_file_set(layout, EDJ_DIR"/map_view.edj", "map_object");
-	evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, 0.0);
-	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, 0.0);
 	elm_object_content_set(gps_button, layout);
 
 	evas_object_smart_callback_add(gps_button, "pressed", gpsbutton_press_cb, layout);
@@ -394,7 +390,7 @@ static Evas_Object *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 	elm_map_zoom_mode_set(ad->map, ELM_MAP_ZOOM_MODE_MANUAL);
 
 	if (ad->mapview_place->address == NULL) {
-		elm_map_zoom_set(ad->map, 2);
+		elm_map_zoom_set(ad->map, 3);
 		elm_map_region_show(ad->map, 0.0, 0.0);
 	} else {
 		LS_LOGE("create_map_layout: lat=%lf lon=%lf address=%s", ad->mapview_place->latitude, ad->mapview_place->longitude, ad->mapview_place->address);
@@ -411,9 +407,9 @@ static Evas_Object *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 static Evas_Object *create_searchfield_layout(myplace_app_data *ad, Evas_Object *parent)
 {
 	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_theme_set(layout, "layout", "searchfield", "singleline");
+	elm_layout_theme_set(layout, "layout", "editfield", "singleline");
 	evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, 0.0);
-	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, 0.0);
+	evas_object_size_hint_weight_set(layout, 0.9, 0.0);
 
 	ad->map_entry = elm_entry_add(layout);
 	elm_entry_single_line_set(ad->map_entry, EINA_TRUE);
@@ -446,6 +442,12 @@ static Evas_Object *create_map_view(myplace_app_data *ad)
 	evas_object_size_hint_align_set(main_scroller, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_show(main_scroller);
 
+	Evas_Object *bg_map_view = elm_bg_add(main_scroller);
+	evas_object_size_hint_weight_set(bg_map_view, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(bg_map_view, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_bg_color_set(bg_map_view, 255, 255, 255);
+	evas_object_show(bg_map_view);
+
 	main_box = elm_box_add(main_scroller);
 	evas_object_size_hint_align_set(main_box, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(main_box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -474,7 +476,8 @@ static Evas_Object *create_map_view(myplace_app_data *ad)
 	elm_box_pack_end(main_box, layout);
 	evas_object_show(layout);
 
-	elm_object_content_set(main_scroller, main_box);
+	elm_object_part_content_set(bg_map_view, "overlay", main_box);
+	elm_object_content_set(main_scroller, bg_map_view);
 
 	return main_scroller;
 }
