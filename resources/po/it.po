@@ -1,0 +1,84 @@
+msgid "IDS_COM_BODY_DONE"
+msgstr "Fatto"
+
+msgid "IDS_COM_SK_OK"
+msgstr "OK"
+
+msgid "IDS_COM_SK_CANCEL"
+msgstr "Annulla"
+
+msgid "IDS_COM_BODY_SELECT_ALL"
+msgstr "Seleziona tutto"
+
+msgid "IDS_COM_BODY_WI_FI"
+msgstr "Wi-Fi"
+
+msgid "IDS_MAPS_BODY_MY_PLACES"
+msgstr "Luoghi personali"
+
+msgid "IDS_FM_OPT_ADD"
+msgstr "Aggiungi"
+
+msgid "IDS_ST_HEADER_PD_SELECTED_ABB"
+msgstr "%d selezionati"
+
+msgid "IDS_ST_BODY_OFFICE"
+msgstr "Ufficio"
+
+msgid "IDS_ST_BODY_NAME"
+msgstr "Nome"
+
+msgid "IDS_LBS_BODY_MAP"
+msgstr "Mappa"
+
+msgid "IDS_COM_BODY_BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "IDS_COM_SK_SELECT"
+msgstr "Seleziona"
+
+msgid "IDS_COM_BODY_UNABLE_TO_ADD"
+msgstr "Impossibile aggiungere."
+
+msgid "IDS_COM_BODY_NONE"
+msgstr "Nessuno"
+
+msgid "IDS_COM_POP_ALREADY_EXISTS"
+msgstr "Già esiste."
+
+msgid "IDS_COM_BODY_NO_NAME"
+msgstr "Nessun nome"
+
+msgid "IDS_ST_BODY_SAVE_YOUR_FAVOURITE_LOCATIONS_FOR_USE_WITH_APPLICATIONS_THAT_REQUIRE_LOCATION_INFORMATION"
+msgstr "Salvate le posizioni preferite per utilizzarle con le applicazioni che richiedono le informazioni sulla posizione."
+
+msgid "IDS_ES_BODY_HOME"
+msgstr "Casa"
+
+msgid "IDS_COM_BODY_CAR"
+msgstr "Automobile"
+
+msgid "IDS_ST_BODY_YOUR_DEVICE_WILL_PROVIDE_RELEVANT_INFORMATION_AND_SERVICES_USING_MAPS_WI_FI_OR_BLUETOOTH_WHEN_IT_RECOGNISES_THAT_YOU_ARE_AT_SAVED_LOCATIONS"
+msgstr "Quando vi trovate nelle posizioni salvate, il dispositivo fornirà informazioni e servizi rilevanti tramite mappe, Wi-Fi o Bluetooth."
+
+msgid "IDS_DVBH_HEADER_SELECT_METHOD"
+msgstr "Seleziona metodo"
+
+msgid "IDS_CCL_OPT_DELETE"
+msgstr "Elimina"
+
+msgid "IDS_ST_HEADER_ADD_PLACE_ABB"
+msgstr "Aggiungi luogo"
+
+msgid "IDS_ST_TPOP_PLACE_NAME_ALREADY_IN_USE"
+msgstr "Nome luogo già in uso."
+
+msgid "IDS_ST_HEADER_EDIT_PLACE_ABB"
+msgstr "Modifica luogo"
+
+msgid "IDS_BT_BODY_NOT_SELECTED"
+msgstr "Non selezionati"
+
+msgid "IDS_LBS_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nessun risultato trovato"
+

@@ -121,10 +121,14 @@ Evas_Object *create_win(const char *name)
 		elm_win_title_set(eo, name);
 		elm_win_indicator_mode_set(eo, ELM_WIN_INDICATOR_SHOW); /* indicator allow */
 		elm_win_indicator_opacity_set(eo, ELM_WIN_INDICATOR_OPAQUE);
-//		elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE);	// block for 3.0 build
+		/* elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE); */		/* block for 3.0 build */
 		elm_win_conformant_set(eo, EINA_TRUE);
 		evas_object_smart_callback_add(eo, "delete,request", win_del, NULL);
 		elm_win_autodel_set(eo, EINA_TRUE);
+		if (elm_win_wm_rotation_supported_get(eo)) {
+			int rots[4] = { 0, 90, 180, 270 };
+			elm_win_wm_rotation_available_rotations_set(eo, (const int *)(&rots), 4);
+		}
 	}
 	evas_object_show(eo);
 
@@ -382,7 +386,7 @@ static char *myplace_discription_text_get(void *data, Evas_Object *obj, const ch
 
 char *myplace_place_text_get(void *data, Evas_Object *obj, const char *part)
 {
-	int index = (int) data;
+	long int index = (long int) data;
 	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
 	char geo_method[50] = {};
 
@@ -435,7 +439,7 @@ static Evas_Object *myplace_placelist_create_gl(Evas_Object *parent, void *data)
 	Elm_Genlist_Item_Class *itc_discription;
 	Elm_Object_Item *gi_discription;
 
-	int i;
+	long int i;
 
 	genlist = elm_genlist_add(parent);
 	elm_genlist_mode_set(genlist, ELM_LIST_COMPRESS);
@@ -556,8 +560,6 @@ void myplace_placelist_cb(void *data)
 	elm_object_style_set(more_button, "naviframe/more/default");
 	evas_object_smart_callback_add(more_button, "clicked", myplace_more_button, ad);
 	elm_object_item_part_content_set(nf_it, "toolbar_more_btn", more_button);
-
-	elm_genlist_item_class_free(ad->itc_geofence);
 
 	for (i = 0; ad->last_index >= i; i++)
 		elm_genlist_item_class_free(ad->placelist[i]->itc_myplace);

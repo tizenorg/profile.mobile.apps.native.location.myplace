@@ -34,7 +34,7 @@ INCLUDE(FindPkgConfig)
 
 # Check external libraries
 INCLUDE(FindPkgConfig)
-pkg_check_modules(MYPLACE_EXT_LIBS "REQUIRED" glib-2.0 gthread-2.0 efl-extension ui-gadget-1 capi-network-wifi capi-geofence-manager capi-network-bluetooth capi-appfw-application evas elementary edje capi-location-manager dlog vconf appcore-efl ecore)
+pkg_check_modules(MYPLACE_EXT_LIBS "REQUIRED" glib-2.0 gthread-2.0 efl-extension ui-gadget-1 capi-network-wifi capi-geofence-manager capi-network-bluetooth capi-appfw-application capi-system-info evas elementary edje capi-location-manager dlog vconf appcore-efl ecore)
 
 SET(EXTRA_CFLAGS "")
 FOREACH(flag ${${MYPLACE_EXT_LIBS}_CFLAGS})
@@ -51,9 +51,6 @@ ADD_DEFINITIONS("-DLOCALE_DIR=\"${LOCALE_DIR}\"")
 
 # install application HOME directory
 INSTALL(DIRECTORY DESTINATION ${DATADIR})
-
-# install smack rule file
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/org.tizen.myplace.efl DESTINATION	/etc/smack/accesses.d)
 
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/data/xml/ DESTINATION ${RESDIR} FILES_MATCHING PATTERN "*.xml")
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/data/images/ DESTINATION ${IMGDIR} FILES_MATCHING PATTERN "*.*")

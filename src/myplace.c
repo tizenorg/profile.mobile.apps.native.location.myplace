@@ -109,7 +109,6 @@ static void _app_control_cb(app_control_h app_control, void *user_data)
 	bindtextdomain(MYPLACE_PKG, LOCALE_DIR);
 
 	ad->win_main = create_win(MYPLACE_PKG);
-
 	ad->bg = create_bg(ad->win_main);
 	ad->conformant = create_conformant(ad->win_main);
 
@@ -136,15 +135,18 @@ static void _app_low_battery_cb(void *user_data)
 	LS_FUNC_ENTER
 }
 
-static void _app_device_orientation_cb(app_device_orientation_e orientation, void *user_data)
+static void _app_device_orientation_cb(app_event_info_h event_info, void *user_data)
 {
 	LS_FUNC_ENTER
+	LS_RETURN_IF_FAILED(event_info);
+	LS_RETURN_IF_FAILED(user_data);
 
 	myplace_app_data *ad = (myplace_app_data *)user_data;
+	app_device_orientation_e orientation;
+	app_event_get_device_orientation(event_info, &orientation);
 	elm_win_rotation_with_resize_set(ad->win_main, orientation);
 }
 */
-
 
 static void _app_language_changed_cb(app_event_info_h event_info, void *user_data)
 {
