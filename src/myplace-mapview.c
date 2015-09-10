@@ -359,10 +359,11 @@ Evas_Object *create_gpsbutton_layout(void *data, Evas_Object *obj)
 	myplace_app_data *ad = (myplace_app_data *)data;
 
 	Evas_Object *gps_button = elm_button_add(obj);
-	elm_object_style_set(gps_button, "transparent");
+//	elm_object_style_set(gps_button, "transparent");
+	elm_object_style_set(gps_button, "circle");
 	evas_object_repeat_events_set(gps_button, EINA_FALSE);
 	evas_object_propagate_events_set(gps_button, EINA_FALSE);
-	evas_object_size_hint_weight_set(gps_button, 0.1, 0.0);
+	evas_object_size_hint_weight_set(gps_button, 0.0, 0.0);
 	evas_object_size_hint_align_set(gps_button, 0.5, 0.5);
 	evas_object_show(gps_button);
 
@@ -506,20 +507,16 @@ void mapview(myplace_app_data *ad, myplace_data *place_nd)
 
 	/* title cancel button */
 	ad->map_cancel_btn = elm_button_add(nf);
-	/* elm_object_style_set(ad->map_cancel_btn, "naviframe/title_text_left"); */
-	elm_object_style_set(ad->map_cancel_btn, "naviframe/title_text");
+	elm_object_style_set(ad->map_cancel_btn, "naviframe/title_left");
 	elm_object_part_text_set(ad->map_cancel_btn, "default", P_("IDS_COM_SK_CANCEL"));
 	evas_object_smart_callback_add(ad->map_cancel_btn, "clicked", mapview_cancel_cb, ad);
-	/* elm_object_item_part_content_set(nf_it, "title_left_text_btn", ad->map_cancel_btn); */
 	elm_object_item_part_content_set(nf_it, "title_left_btn", ad->map_cancel_btn);
 
 	/* title done button */
 	ad->map_done_btn = elm_button_add(nf);
-	/* elm_object_style_set(ad->map_done_btn, "naviframe/title_text_right"); */
-	elm_object_style_set(ad->map_done_btn, "naviframe/title_text");
+	elm_object_style_set(ad->map_done_btn, "naviframe/title_right");
 	elm_object_part_text_set(ad->map_done_btn, "default", P_("IDS_COM_BODY_DONE"));
 	evas_object_smart_callback_add(ad->map_done_btn, "clicked", mapview_done_cb, ad);
-	/* elm_object_item_part_content_set(nf_it, "title_right_text_btn", ad->map_done_btn); */
 	elm_object_item_part_content_set(nf_it, "title_right_btn", ad->map_done_btn);
 
 	if (ad->mapview_place->address == NULL)

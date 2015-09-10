@@ -569,6 +569,7 @@ static Evas_Object *gl_button_content_get_cb(void *data, Evas_Object *obj, const
 			evas_object_propagate_events_set(del_button, EINA_FALSE);
 
 			/* elm_object_style_set(del_button, "transparent"); */
+			elm_object_style_set(del_button, "circle");
 			evas_object_show(del_button);
 
 			Evas_Object *layout = elm_layout_add(del_button);
@@ -935,19 +936,15 @@ void placeinfo_cb(void *data, Evas_Object *obj, void *event_info)
 
 	/* title cancel button */
 	cancel_btn = elm_button_add(ad->nf);
-	/* elm_object_style_set(cancel_btn, "naviframe/title_text_left"); */
-	elm_object_style_set(cancel_btn, "naviframe/title_text");
+	elm_object_style_set(cancel_btn, "naviframe/title_left");
 	elm_object_part_text_set(cancel_btn, "default", P_("IDS_COM_SK_CANCEL"));
 	evas_object_smart_callback_add(cancel_btn, "clicked", detailinfo_cancel_cb, ad);
-	/* elm_object_item_part_content_set(nf_it, "title_left_text_btn", cancel_btn); */
 	elm_object_item_part_content_set(nf_it, "title_left_btn", cancel_btn);
 
 	/* title done button */
 	done_btn = elm_button_add(ad->nf);
-	/* elm_object_style_set(done_btn, "naviframe/title_text_right"); */
-	elm_object_style_set(done_btn, "naviframe/title_text");
+	elm_object_style_set(done_btn, "naviframe/title_right");
 	elm_object_part_text_set(done_btn, "default", P_("IDS_COM_BODY_DONE"));
 	evas_object_smart_callback_add(done_btn, "clicked", detailinfo_done_cb, ad);
-	/* elm_object_item_part_content_set(nf_it, "title_right_text_btn", done_btn); */
 	elm_object_item_part_content_set(nf_it, "title_right_btn", done_btn);
 }
