@@ -19,7 +19,7 @@ SET(BINDIR "${PREFIX}/bin")
 SET(LIBDIR "${PREFIX}/lib")
 SET(RESDIR "${PREFIX}/res")
 SET(DATADIR "${PREFIX}/data")
-SET(IMGDIR "${DATADIR}/images")
+SET(IMGDIR "${RESDIR}/images")
 SET(LOCALE_DIR "${RESDIR}/locale")
 SET(EDJ_DIR "${RESDIR}/edje")
 
