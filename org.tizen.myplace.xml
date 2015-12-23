@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.myplace" version="1.0.0" install-location="internal-only">
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.myplace" api-version="2.4" version="1.0.0" install-location="internal-only">
 	<label>My places</label>
 	<author email="youngae.kang@samsung.com" href="www.samsung.com">Youngae kang</author>
 	<author email="jongmun.woo@samsung.com" href="www.samsung.com">JongMun Woo</author>
