@@ -279,7 +279,7 @@ static void delete_done_cb(void *data, Evas_Object *obj, void *event_info)
 
 			geofence_manager_remove_place(ad->geo_manager, ad->placelist[i]->place_id);
 
-			elm_object_item_del(ad->placelist[i]->gi_myplace);
+			elm_genlist_item_del(ad->placelist[i]->gi_myplace);
 
 			if (ad->placelist[i]->name)
 				free(ad->placelist[i]->name);
@@ -375,12 +375,12 @@ void myplace_delete_cb(void *data, Evas_Object *obj, void *event_info)
 	elm_object_style_set(cancel_btn, "naviframe/title_left");
 	elm_object_part_text_set(cancel_btn, "default", P_("IDS_COM_SK_CANCEL"));
 	evas_object_smart_callback_add(cancel_btn, "clicked", delete_cancel_cb, ad);
-	elm_object_item_part_content_set(ad->nf_it, "title_left_btn", cancel_btn);
+	elm_object_item_content_part_set(ad->nf_it, "title_left_btn", cancel_btn);
 
 	/* title done button */
 	done_btn = elm_button_add(ad->nf);
 	elm_object_style_set(done_btn, "naviframe/title_right");
 	elm_object_part_text_set(done_btn, "default", P_("IDS_COM_BODY_DONE"));
 	evas_object_smart_callback_add(done_btn, "clicked", delete_done_cb, ad);
-	elm_object_item_part_content_set(ad->nf_it, "title_right_btn", done_btn);
+	elm_object_item_content_part_set(ad->nf_it, "title_right_btn", done_btn);
 }

@@ -559,7 +559,7 @@ void myplace_placelist_cb(void *data)
 	more_button = elm_button_add(ad->nf);
 	elm_object_style_set(more_button, "naviframe/more/default");
 	evas_object_smart_callback_add(more_button, "clicked", myplace_more_button, ad);
-	elm_object_item_part_content_set(nf_it, "toolbar_more_btn", more_button);
+	elm_object_item_content_part_set(nf_it, "toolbar_more_btn", more_button);
 
 	for (i = 0; ad->last_index >= i; i++)
 		elm_genlist_item_class_free(ad->placelist[i]->itc_myplace);

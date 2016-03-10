@@ -429,12 +429,12 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 		evas_object_smart_callback_add(entry, "changed", editfield_changed_cb, editfield);
 		evas_object_smart_callback_add(entry, "preedit,changed", editfield_changed_cb, editfield);
 		evas_object_smart_callback_add(entry, "activated", editfield_done_cb, ad);
-		elm_object_part_content_set(editfield, "elm.swallow.content", entry);
+		elm_object_content_part_set(editfield, "elm.swallow.content", entry);
 		elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
 
 		button = elm_button_add(editfield);	elm_object_style_set(button, "editfield_clear");
 		evas_object_smart_callback_add(button, "clicked", editfield_clear_button_clicked_cb, entry);
-		elm_object_part_content_set(editfield, "elm.swallow.button", button);
+		elm_object_content_part_set(editfield, "elm.swallow.button", button);
 
 		return editfield;
 	}
@@ -810,9 +810,9 @@ static Evas_Object *create_detail_view(myplace_app_data *ad)
 	gen_wifi_method->func.del = NULL;
 	ad->gi_wifi_method = elm_genlist_item_append(ad->fence_genlist, gen_wifi_method, (void *)MYPLACE_METHOD_WIFI, NULL, ELM_GENLIST_ITEM_TREE, select_wifi_method_cb, ad);
 	if (__is_support_wifi() == TRUE)
-		elm_object_item_disabled_set(ad->gi_wifi_method, EINA_FALSE);
+		elm_genlist_item_disabled_set(ad->gi_wifi_method, EINA_FALSE);
 	else
-		elm_object_item_disabled_set(ad->gi_wifi_method, EINA_TRUE);
+		elm_genlist_item_disabled_set(ad->gi_wifi_method, EINA_TRUE);
 
 	/* BT */
 	gen_bt_method = elm_genlist_item_class_new();
@@ -825,9 +825,9 @@ static Evas_Object *create_detail_view(myplace_app_data *ad)
 	gen_bt_method->func.del = NULL;
 	ad->gi_bt_method = elm_genlist_item_append(ad->fence_genlist, gen_bt_method, (void *)MYPLACE_METHOD_BT, NULL, ELM_GENLIST_ITEM_TREE, select_bt_method_cb, ad);
 	if (__is_support_bluetooth() == TRUE)
-		elm_object_item_disabled_set(ad->gi_bt_method, EINA_FALSE);
+		elm_genlist_item_disabled_set(ad->gi_bt_method, EINA_FALSE);
 	else
-		elm_object_item_disabled_set(ad->gi_bt_method, EINA_TRUE);
+		elm_genlist_item_disabled_set(ad->gi_bt_method, EINA_TRUE);
 
 	evas_object_show(ad->fence_genlist);
 
