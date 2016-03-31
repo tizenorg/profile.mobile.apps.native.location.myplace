@@ -121,7 +121,6 @@ Evas_Object *create_win(const char *name)
 		elm_win_title_set(eo, name);
 		elm_win_indicator_mode_set(eo, ELM_WIN_INDICATOR_SHOW); /* indicator allow */
 		elm_win_indicator_opacity_set(eo, ELM_WIN_INDICATOR_OPAQUE);
-		/* elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE); */		/* block for 3.0 build */
 		elm_win_conformant_set(eo, EINA_TRUE);
 		evas_object_smart_callback_add(eo, "delete,request", win_del, NULL);
 		elm_win_autodel_set(eo, EINA_TRUE);

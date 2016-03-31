@@ -1,6 +1,6 @@
 Name:       org.tizen.myplace
 Summary:    My places
-Version:    1.0.0
+Version:    1.0.1
 Release:    1
 Group:      Applications/Location
 License:    Apache-2.0
@@ -25,6 +25,7 @@ BuildRequires: pkgconfig(capi-location-manager)
 BuildRequires: pkgconfig(capi-network-wifi)
 BuildRequires: pkgconfig(capi-geofence-manager)
 BuildRequires: pkgconfig(capi-network-bluetooth)
+BuildRequires: pkgconfig(capi-maps-service)
 BuildRequires: edje-bin
 BuildRequires: cmake
 BuildRequires: gettext-tools
