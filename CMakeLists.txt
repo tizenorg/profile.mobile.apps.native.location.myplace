@@ -34,7 +34,7 @@ INCLUDE(FindPkgConfig)
 
 # Check external libraries
 INCLUDE(FindPkgConfig)
-pkg_check_modules(MYPLACE_EXT_LIBS "REQUIRED" glib-2.0 gthread-2.0 efl-extension ui-gadget-1 capi-network-wifi capi-geofence-manager capi-network-bluetooth capi-appfw-application capi-system-info evas elementary edje capi-location-manager dlog vconf appcore-efl ecore)
+pkg_check_modules(MYPLACE_EXT_LIBS "REQUIRED" glib-2.0 gthread-2.0 efl-extension ui-gadget-1 capi-network-wifi capi-geofence-manager capi-network-bluetooth capi-appfw-application capi-system-info evas elementary edje capi-location-manager dlog vconf appcore-efl ecore capi-maps-service)
 
 SET(EXTRA_CFLAGS "")
 FOREACH(flag ${${MYPLACE_EXT_LIBS}_CFLAGS})

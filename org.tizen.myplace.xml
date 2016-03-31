@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.myplace" api-version="2.4" version="1.0.0" install-location="internal-only">
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.myplace" api-version="3.0" version="1.0.1" install-location="internal-only">
 	<label>My places</label>
 	<author email="youngae.kang@samsung.com" href="www.samsung.com">Youngae kang</author>
 	<author email="jongmun.woo@samsung.com" href="www.samsung.com">JongMun Woo</author>
@@ -17,6 +17,7 @@
 		<privilege>http://tizen.org/privilege/bluetooth</privilege>
 		<privilege>http://tizen.org/privilege/bluetooth.admin</privilege>
 		<privilege>http://tizen.org/privilege/internet</privilege>
+		<privilege>http://tizen.org/privilege/mapservice</privilege>
 	</privileges>
 	<ui-application appid="org.tizen.myplace" exec="/usr/apps/org.tizen.myplace/bin/myplace" launch_mode="caller" nodisplay="true" multiple="false" type="capp" taskmanage="false">
 		<label>My places</label>
