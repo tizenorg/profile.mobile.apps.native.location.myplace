@@ -70,6 +70,15 @@ static void _app_terminate_cb(void *user_data)
 	LS_FUNC_ENTER
 	myplace_app_data *ad = (myplace_app_data *) user_data;
 
+	if (ad->maps_view != NULL) {
+		map_view_remove_all_objects(ad->maps_view);
+		map_view_destroy(ad->maps_view);
+		ad->maps_view = NULL;
+	}
+	if (ad->maps_service != NULL) {
+		maps_service_destroy(ad->maps_service);
+		ad->maps_service = NULL;
+	}
 	if (ad->geo_manager != NULL)
 		geofence_manager_destroy(ad->geo_manager);
 
@@ -101,6 +110,7 @@ static void _app_control_cb(app_control_h app_control, void *user_data)
 		ad->win_main = NULL;
 	}
 
+	elm_config_accel_preference_set("opengl");
 	ad->geo_manager = NULL;
 
 	app_control_get_extra_data(app_control, MYPLACE_CALLER, &(ad->caller));
@@ -143,8 +153,9 @@ static void _app_device_orientation_cb(app_event_info_h event_info, void *user_d
 
 	myplace_app_data *ad = (myplace_app_data *)user_data;
 	app_device_orientation_e orientation;
+	Evas_Object *panel = NULL;
+
 	app_event_get_device_orientation(event_info, &orientation);
-	elm_win_rotation_with_resize_set(ad->win_main, orientation);
 }
 */
 
@@ -172,16 +183,15 @@ int main(int argc, char *argv[])
 
 	ui_app_add_event_handler(&handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, NULL, NULL);
 	ui_app_add_event_handler(&handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, NULL, NULL);
-	ui_app_add_event_handler(&handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, NULL, NULL);
+	ui_app_add_event_handler(&handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, NULL, &ad);
 	ui_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED,	_app_language_changed_cb, NULL);
 	ui_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, NULL, NULL);
 
 	ret = APP_ERROR_NONE;
 	ret = ui_app_main(argc, argv, &event_callback, &ad);
 
-	if (ret != APP_ERROR_NONE) {
+	if (ret != APP_ERROR_NONE)
 		LS_LOGE("app_efl_main() is failed. err=%d", ret);
-	}
 
 	return ret;
 

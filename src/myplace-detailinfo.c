@@ -295,11 +295,11 @@ detailinfo_done_cb(void *data, Evas_Object * obj, void *event_info)
 		geofence_manager_add_place(ad->geo_manager, ad->placelist[ad->current_index]->name, &(ad->placelist[ad->current_index]->place_id));
 
 		if (ad->placelist[ad->current_index]->method_map == true) {
-            geofence_create_geopoint(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->latitude, ad->placelist[ad->current_index]->longitude, PLACE_GEOPOINT_RADIUS, ad->placelist[ad->current_index]->address, &(ad->placelist[ad->current_index]->map_geofence_params));
-            geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->map_geofence_params, &(ad->placelist[ad->current_index]->map_fence_id));
-        }
+			geofence_create_geopoint(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->latitude, ad->placelist[ad->current_index]->longitude, PLACE_GEOPOINT_RADIUS, ad->placelist[ad->current_index]->address, &(ad->placelist[ad->current_index]->map_geofence_params));
+			geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->map_geofence_params, &(ad->placelist[ad->current_index]->map_fence_id));
+		}
 
-        if (ad->placelist[ad->current_index]->method_wifi == true) {
+		if (ad->placelist[ad->current_index]->method_wifi == true) {
 			geofence_create_wifi(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->wifi_bssid, ad->placelist[ad->current_index]->wifi_ssid, &(ad->placelist[ad->current_index]->wifi_geofence_params));
 			geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->wifi_geofence_params, &(ad->placelist[ad->current_index]->wifi_fence_id));
 		}
@@ -382,7 +382,16 @@ static void editfield_changed_cb(void *data, Evas_Object *obj, void *event_info)
 static void editfield_clear_button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	Evas_Object *entry = (Evas_Object *)data;
+	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
+
+	if (ad == NULL)
+		return;
+
 	elm_entry_entry_set(entry, "");
+
+	if (ad->selected_place->name != NULL)
+		free(ad->selected_place->name);
+	ad->selected_place->name = NULL;
 }
 
 static void editfield_done_cb(void *data, Evas_Object *obj, void *event_info)
@@ -433,6 +442,7 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 		elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
 
 		button = elm_button_add(editfield);	elm_object_style_set(button, "editfield_clear");
+		evas_object_data_set(button, "app_data", ad);
 		evas_object_smart_callback_add(button, "clicked", editfield_clear_button_clicked_cb, entry);
 		elm_object_part_content_set(editfield, "elm.swallow.button", button);
 

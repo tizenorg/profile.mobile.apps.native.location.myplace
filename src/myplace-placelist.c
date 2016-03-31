@@ -121,7 +121,6 @@ Evas_Object *create_win(const char *name)
 		elm_win_title_set(eo, name);
 		elm_win_indicator_mode_set(eo, ELM_WIN_INDICATOR_SHOW); /* indicator allow */
 		elm_win_indicator_opacity_set(eo, ELM_WIN_INDICATOR_OPAQUE);
-		/* elm_win_wm_desktop_layout_support_set(eo, EINA_TRUE); */		/* block for 3.0 build */
 		elm_win_conformant_set(eo, EINA_TRUE);
 		evas_object_smart_callback_add(eo, "delete,request", win_del, NULL);
 		elm_win_autodel_set(eo, EINA_TRUE);
@@ -161,16 +160,16 @@ static void _move_more_ctxpopup(void *data)
 	pos = elm_win_rotation_get(ad->win_main);
 
 	switch (pos) {
-		case 0:
-		case 180:
-			evas_object_move(ad->ctx_popup, w, h);
-			break;
-		case 90:
-			evas_object_move(ad->ctx_popup, h/2, w);
-			break;
-		case 270:
-			evas_object_move(ad->ctx_popup, h/2, w);
-			break;
+	case 0:
+	case 180:
+		evas_object_move(ad->ctx_popup, w, h);
+		break;
+	case 90:
+		evas_object_move(ad->ctx_popup, h/2, w);
+		break;
+	case 270:
+		evas_object_move(ad->ctx_popup, h/2, w);
+		break;
 	}
 }
 
@@ -507,7 +506,7 @@ static void myplace_more_button(void *data, Evas_Object *obj, void *event_info)
 
 	elm_ctxpopup_direction_priority_set(ad->ctx_popup, ELM_CTXPOPUP_DIRECTION_UP, ELM_CTXPOPUP_DIRECTION_LEFT, ELM_CTXPOPUP_DIRECTION_RIGHT, ELM_CTXPOPUP_DIRECTION_DOWN);
 
-    _move_more_ctxpopup(ad);
+	_move_more_ctxpopup(ad);
 
 	evas_object_show(ad->ctx_popup);
 }
