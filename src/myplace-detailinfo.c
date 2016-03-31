@@ -382,7 +382,16 @@ static void editfield_changed_cb(void *data, Evas_Object *obj, void *event_info)
 static void editfield_clear_button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	Evas_Object *entry = (Evas_Object *)data;
+	myplace_app_data *ad = evas_object_data_get(obj, "app_data");
+
+	if (ad == NULL)
+		return;
+
 	elm_entry_entry_set(entry, "");
+
+	if (ad->selected_place->name != NULL)
+		free(ad->selected_place->name);
+	ad->selected_place->name = NULL;
 }
 
 static void editfield_done_cb(void *data, Evas_Object *obj, void *event_info)
@@ -433,6 +442,7 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 		elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
 
 		button = elm_button_add(editfield);	elm_object_style_set(button, "editfield_clear");
+		evas_object_data_set(button, "app_data", ad);
 		evas_object_smart_callback_add(button, "clicked", editfield_clear_button_clicked_cb, entry);
 		elm_object_part_content_set(editfield, "elm.swallow.button", button);
 
