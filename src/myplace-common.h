@@ -43,6 +43,7 @@ extern "C" {
 #include <wifi.h>
 #include <bluetooth.h>
 #include <geofence_manager.h>
+#include <map_view.h>
 
 #if !defined(MYPLACE_PKG)
 #define MYPLACE_PKG "org.tizen.myplace"
@@ -97,8 +98,6 @@ extern "C" {
 
 #define COLOR_TABLE "/usr/apps/org.tizen.myplace/res/myplace_ChangeableColorInfo.xml"
 #define FONT_TABLE "/usr/apps/org.tizen.myplace/res/myplace_ChangeableFontInfo.xml"
-
-//#define VCONFKEY_LOCATION_GEOFENCE_ENABLED   "file/private/myplace/geofence"
 
 #define SAFE_STRDUP(src) (src) ? strdup(src) : NULL
 
@@ -221,6 +220,10 @@ typedef struct appdata
 	myplace_data *selected_place;
 	myplace_data *modified_place;
 	myplace_data *mapview_place;
+
+	maps_service_h maps_service;
+	map_view_h maps_view;
+	maps_coordinates_h coordinate;
 } myplace_app_data;
 
 myplace_app_data *myplace_common_get_app_data(void);
