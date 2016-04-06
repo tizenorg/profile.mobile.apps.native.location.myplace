@@ -295,11 +295,11 @@ detailinfo_done_cb(void *data, Evas_Object * obj, void *event_info)
 		geofence_manager_add_place(ad->geo_manager, ad->placelist[ad->current_index]->name, &(ad->placelist[ad->current_index]->place_id));
 
 		if (ad->placelist[ad->current_index]->method_map == true) {
-            geofence_create_geopoint(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->latitude, ad->placelist[ad->current_index]->longitude, PLACE_GEOPOINT_RADIUS, ad->placelist[ad->current_index]->address, &(ad->placelist[ad->current_index]->map_geofence_params));
-            geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->map_geofence_params, &(ad->placelist[ad->current_index]->map_fence_id));
-        }
+			geofence_create_geopoint(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->latitude, ad->placelist[ad->current_index]->longitude, PLACE_GEOPOINT_RADIUS, ad->placelist[ad->current_index]->address, &(ad->placelist[ad->current_index]->map_geofence_params));
+			geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->map_geofence_params, &(ad->placelist[ad->current_index]->map_fence_id));
+		}
 
-        if (ad->placelist[ad->current_index]->method_wifi == true) {
+		if (ad->placelist[ad->current_index]->method_wifi == true) {
 			geofence_create_wifi(ad->placelist[ad->current_index]->place_id, ad->placelist[ad->current_index]->wifi_bssid, ad->placelist[ad->current_index]->wifi_ssid, &(ad->placelist[ad->current_index]->wifi_geofence_params));
 			geofence_manager_add_fence(ad->geo_manager, ad->placelist[ad->current_index]->wifi_geofence_params, &(ad->placelist[ad->current_index]->wifi_fence_id));
 		}
@@ -314,7 +314,7 @@ detailinfo_done_cb(void *data, Evas_Object * obj, void *event_info)
 
 static char *myplace_place_name_text_get(void *data, Evas_Object *obj, const char *part)
 {
-	if (!g_strcmp0(part, "elm.text.main"))
+	if (!g_strcmp0(part, "elm.text"))
 		return strdup(P_("IDS_ST_BODY_NAME"));
 
 	return NULL;
@@ -397,7 +397,7 @@ static Evas_Object *myplace_place_name_content_get(void *data, Evas_Object *obj,
 	if (ad == NULL)
 		return NULL;
 
-	if (!strcmp(part, "elm.icon.entry")) {
+	if (!strcmp(part, "elm.swallow.content")) {
 		Evas_Object *editfield, *entry, *button;
 
 		editfield = elm_layout_add(obj);
@@ -737,21 +737,34 @@ static void select_bt_method_cb(void *data, Evas_Object *obj, void *event_info)
 
 static Evas_Object *create_detail_view(myplace_app_data *ad)
 {
-	Elm_Genlist_Item_Class *gen_name, *gen_description;
+	Elm_Genlist_Item_Class *gen_name_group, *gen_name, *gen_description;
 	Elm_Genlist_Item_Class *gen_fence_group, *gen_map_method = NULL, *gen_wifi_method, *gen_bt_method;
-	Elm_Object_Item *gi_description, *gi_method;
+	Elm_Object_Item *gi_name, *gi_description, *gi_method;
 
 	ad->fence_genlist = elm_genlist_add(ad->nf);
 	elm_genlist_mode_set(ad->fence_genlist, ELM_LIST_COMPRESS);
 	evas_object_data_set(ad->fence_genlist, "app_data", ad);
 	elm_layout_theme_set(ad->fence_genlist, "genlist", "base", "default");
 
+	/* Name group */
+	gen_name_group = elm_genlist_item_class_new();
+	if (gen_name_group == NULL)
+		return NULL;
+	gen_name_group->item_style = "group_index";
+	gen_name_group->func.text_get = myplace_place_name_text_get;
+	gen_name_group->func.content_get = NULL;
+	gen_name_group->func.state_get = NULL;
+	gen_name_group->func.del = NULL;
+	gi_name = elm_genlist_item_append(ad->fence_genlist, gen_name_group, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
+
+	elm_genlist_item_select_mode_set(gi_name, ELM_OBJECT_SELECT_MODE_NONE);
+
 	/* Place Name */
 	gen_name = elm_genlist_item_class_new();
 	if (gen_name == NULL)
 		return NULL;
-	gen_name->item_style = "entry.main";
-	gen_name->func.text_get = myplace_place_name_text_get;
+	gen_name->item_style = "full";
+	gen_name->func.text_get = NULL;
 	gen_name->func.content_get = myplace_place_name_content_get;
 	gen_name->func.state_get = NULL;
 	gen_name->func.del = NULL;

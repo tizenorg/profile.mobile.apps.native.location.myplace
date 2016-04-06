@@ -161,16 +161,16 @@ static void _move_more_ctxpopup(void *data)
 	pos = elm_win_rotation_get(ad->win_main);
 
 	switch (pos) {
-		case 0:
-		case 180:
-			evas_object_move(ad->ctx_popup, w, h);
-			break;
-		case 90:
-			evas_object_move(ad->ctx_popup, h/2, w);
-			break;
-		case 270:
-			evas_object_move(ad->ctx_popup, h/2, w);
-			break;
+	case 0:
+	case 180:
+		evas_object_move(ad->ctx_popup, w, h);
+		break;
+	case 90:
+		evas_object_move(ad->ctx_popup, h/2, w);
+		break;
+	case 270:
+		evas_object_move(ad->ctx_popup, h/2, w);
+		break;
 	}
 }
 
@@ -507,7 +507,7 @@ static void myplace_more_button(void *data, Evas_Object *obj, void *event_info)
 
 	elm_ctxpopup_direction_priority_set(ad->ctx_popup, ELM_CTXPOPUP_DIRECTION_UP, ELM_CTXPOPUP_DIRECTION_LEFT, ELM_CTXPOPUP_DIRECTION_RIGHT, ELM_CTXPOPUP_DIRECTION_DOWN);
 
-    _move_more_ctxpopup(ad);
+	_move_more_ctxpopup(ad);
 
 	evas_object_show(ad->ctx_popup);
 }

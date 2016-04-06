@@ -304,10 +304,9 @@ static void delete_done_cb(void *data, Evas_Object *obj, void *event_info)
 
 	for (i = DEFAULT_PLACE_COUNT; i <= ad->last_index; i++) {
 		if (ad->placelist[i] == NULL) {
-			for (j = i; j < ad->last_index; j++) {
+			for (j = i; j < ad->last_index; j++)
 				ad->placelist[j] = ad->placelist[j+1];
-			}
-		backup_last--;
+			backup_last--;
 		}
 	}
 	ad->last_index = backup_last;
@@ -350,6 +349,11 @@ void myplace_delete_cb(void *data, Evas_Object *obj, void *event_info)
 	itc_select_all->func.state_get = NULL;
 	itc_select_all->func.del = NULL;
 	ad->gi_del_all = elm_genlist_item_append(genlist, itc_select_all, (void *)-1, NULL, ELM_GENLIST_ITEM_NONE, set_checkall_by_genlist_cb, NULL);
+
+	if (ad->last_index < DEFAULT_PLACE_COUNT)
+		elm_object_item_disabled_set(ad->gi_del_all, EINA_TRUE);
+	else
+		elm_object_item_disabled_set(ad->gi_del_all, EINA_FALSE);
 
 	for (i = DEFAULT_PLACE_COUNT; i <= ad->last_index; i++) {
 		ad->placelist[i]->del_check = EINA_FALSE;

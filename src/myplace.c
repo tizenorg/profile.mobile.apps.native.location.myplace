@@ -172,16 +172,15 @@ int main(int argc, char *argv[])
 
 	ui_app_add_event_handler(&handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, NULL, NULL);
 	ui_app_add_event_handler(&handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, NULL, NULL);
-	ui_app_add_event_handler(&handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, NULL, NULL);
+	ui_app_add_event_handler(&handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, _app_device_orientation_cb, NULL);
 	ui_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED,	_app_language_changed_cb, NULL);
 	ui_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, NULL, NULL);
 
 	ret = APP_ERROR_NONE;
 	ret = ui_app_main(argc, argv, &event_callback, &ad);
 
-	if (ret != APP_ERROR_NONE) {
+	if (ret != APP_ERROR_NONE)
 		LS_LOGE("app_efl_main() is failed. err=%d", ret);
-	}
 
 	return ret;
 

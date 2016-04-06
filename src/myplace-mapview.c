@@ -359,7 +359,6 @@ Evas_Object *create_gpsbutton_layout(void *data, Evas_Object *obj)
 	myplace_app_data *ad = (myplace_app_data *)data;
 
 	Evas_Object *gps_button = elm_button_add(obj);
-//	elm_object_style_set(gps_button, "transparent");
 	elm_object_style_set(gps_button, "circle");
 	evas_object_repeat_events_set(gps_button, EINA_FALSE);
 	evas_object_propagate_events_set(gps_button, EINA_FALSE);
