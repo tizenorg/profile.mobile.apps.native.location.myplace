@@ -96,6 +96,9 @@ static void _app_control_cb(app_control_h app_control, void *user_data)
 	myplace_app_data *ad = (myplace_app_data *) user_data;
 	LS_RETURN_IF_FAILED(ad);
 
+	elm_app_base_scale_set(2.6);
+	elm_config_accel_preference_set("3d");
+
 	if (ad->win_main) {
 		evas_object_del(ad->win_main);
 		ad->win_main = NULL;
