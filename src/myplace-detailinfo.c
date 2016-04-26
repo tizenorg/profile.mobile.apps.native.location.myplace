@@ -739,7 +739,7 @@ static Evas_Object *create_detail_view(myplace_app_data *ad)
 {
 	Elm_Genlist_Item_Class *gen_name_group, *gen_name, *gen_description;
 	Elm_Genlist_Item_Class *gen_fence_group, *gen_map_method = NULL, *gen_wifi_method, *gen_bt_method;
-	Elm_Object_Item *gi_name, *gi_description, *gi_method;
+	Elm_Object_Item *gi_name_group, *gi_name, *gi_description, *gi_method;
 
 	ad->fence_genlist = elm_genlist_add(ad->nf);
 	elm_genlist_mode_set(ad->fence_genlist, ELM_LIST_COMPRESS);
@@ -755,9 +755,9 @@ static Evas_Object *create_detail_view(myplace_app_data *ad)
 	gen_name_group->func.content_get = NULL;
 	gen_name_group->func.state_get = NULL;
 	gen_name_group->func.del = NULL;
-	gi_name = elm_genlist_item_append(ad->fence_genlist, gen_name_group, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
+	gi_name_group = elm_genlist_item_append(ad->fence_genlist, gen_name_group, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
 
-	elm_genlist_item_select_mode_set(gi_name, ELM_OBJECT_SELECT_MODE_NONE);
+	elm_genlist_item_select_mode_set(gi_name_group, ELM_OBJECT_SELECT_MODE_NONE);
 
 	/* Place Name */
 	gen_name = elm_genlist_item_class_new();
@@ -768,7 +768,10 @@ static Evas_Object *create_detail_view(myplace_app_data *ad)
 	gen_name->func.content_get = myplace_place_name_content_get;
 	gen_name->func.state_get = NULL;
 	gen_name->func.del = NULL;
-	elm_genlist_item_append(ad->fence_genlist, gen_name, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
+	gi_name = elm_genlist_item_append(ad->fence_genlist, gen_name, NULL, NULL, ELM_GENLIST_ITEM_TREE, NULL, NULL);
+
+	if (ad->selected_place->place_id <= PLACE_ID_CAR)
+		elm_genlist_item_select_mode_set(gi_name, ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY);
 
 	/* description */
 	gen_description = elm_genlist_item_class_new();
