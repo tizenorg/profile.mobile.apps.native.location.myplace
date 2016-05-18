@@ -688,9 +688,16 @@ static void select_map_method_cb(void *data, Evas_Object *obj, void *event_info)
 	LS_FUNC_ENTER
 
 	myplace_app_data *ad = (myplace_app_data *)data;
+	int ret = MAPS_ERROR_NONE;
 
 	Elm_Object_Item *nf_it = event_info;
 	elm_genlist_item_selected_set(nf_it, EINA_FALSE);
+
+	ret = maps_service_create("HERE", &(ad->maps_service));
+	if (ret != MAPS_ERROR_NONE || ad->maps_service == NULL) {
+		LS_LOGE("maps_service_create fail");
+		return;
+	}
 
 	ad->modified_place = (myplace_data *) malloc(sizeof(myplace_data));
 	if (ad->modified_place == NULL) return;

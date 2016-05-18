@@ -111,7 +111,7 @@ static void showPositionOnMapsService(myplace_app_data *ad)
 		maps_coordinates_destroy(maps_coord);
 		return;
 	}
-	ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/marker_icon.png", MAPS_VIEW_MARKER_PIN, &marker);
+	ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
 	if (ret != MAPS_ERROR_NONE) {
 		LS_LOGE("map_object_create_marker fail, error = %d", ret);
 		maps_coordinates_destroy(maps_coord);
@@ -187,6 +187,8 @@ static gpointer wait_for_service(void *data)
 
 static void mapLongPressed(myplace_app_data *ad)
 {
+	LS_LOGE("mapLongPressed enter");
+
 	maps_coordinates_h coordinates = NULL;
 	maps_view_object_h marker = NULL;
 	int ret = 0;
@@ -206,7 +208,9 @@ static void mapLongPressed(myplace_app_data *ad)
 		return;
 	}
 	maps_coordinates_create(ad->mapview_place->latitude, ad->mapview_place->longitude, &coordinates);
-	ret = maps_view_object_create_marker(coordinates, IMG_DIR"/marker_icon.png", MAPS_VIEW_MARKER_PIN, &marker);
+	maps_view_set_zoom_level(ad->maps_view, 12);
+
+	ret = maps_view_object_create_marker(coordinates, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
 	if (ret != MAPS_ERROR_NONE) {
 		maps_coordinates_destroy(coordinates);
 		LS_LOGE("map_object_create_marker fail, error = %d", ret);
@@ -218,6 +222,9 @@ static void mapLongPressed(myplace_app_data *ad)
 			maps_coordinates_destroy(coordinates);
 		}
 	}
+	ret = maps_view_set_center(ad->maps_view, coordinates);
+	if (ret != MAPS_ERROR_NONE)
+		LS_LOGE("maps_view_set_center fail, error = %d", ret);
 
 	/* Stop the Location Manager */
 	if (manager != NULL) {
@@ -327,7 +334,7 @@ static bool searchOnMapsService_cb(maps_error_e result, int request_id, int inde
 		maps_coordinates_destroy(coordinates);
 		return false;
 	}
-	ret = maps_view_object_create_marker(coordinates, IMG_DIR"/marker_icon.png", MAPS_VIEW_MARKER_PIN, &marker);
+	ret = maps_view_object_create_marker(coordinates, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
 	if (ret != MAPS_ERROR_NONE) {
 		LS_LOGE("map_object_create_marker fail, error = %d", ret);
 		maps_coordinates_destroy(coordinates);
@@ -604,7 +611,7 @@ static Evas_Image *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 		if (ad->mapview_place->address != NULL)
 			elm_entry_entry_set(ad->map_entry, ad->mapview_place->address);
 
-		ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/marker_icon.png", MAPS_VIEW_MARKER_PIN, &marker);
+		ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
 		if (ret != MAPS_ERROR_NONE) {
 			maps_coordinates_destroy(maps_coord);
 			LS_LOGE("map_object_create_marker fail, error = %d", ret);
@@ -711,7 +718,6 @@ void mapview(myplace_app_data *ad, myplace_data *place_nd)
 
 	Evas_Object *nf = ad->nf;
 	Elm_Object_Item *nf_it;
-	int ret = MAPS_ERROR_NONE;
 
 	ad->mapview_place = place_nd;
 
@@ -723,13 +729,7 @@ void mapview(myplace_app_data *ad, myplace_data *place_nd)
 		manager = NULL;
 		thread = NULL;
 	}
-
-	ret = maps_service_create("HERE", &(ad->maps_service));
-	if (ret != MAPS_ERROR_NONE) {
-		LS_LOGE("maps_service_create fail, error = %d", ret);
-		return;
-	}
-
+	
 	Evas_Object *layout = create_map_view(ad);
 
 	nf_it = elm_naviframe_item_push(nf, P_("IDS_LBS_BODY_MAP"), NULL, NULL, layout, NULL);
