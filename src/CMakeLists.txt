@@ -36,6 +36,7 @@ SET(SRCS
     myplace-delete.c
     myplace-elementary.c
     myplace-mapview.c
+    location-test.c
 )
 
 ADD_DEFINITIONS("-DPREFIX=\"${PREFIX}\"")

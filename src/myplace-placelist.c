@@ -34,6 +34,7 @@
 #include "myplace-placelist.h"
 #include "myplace-delete.h"
 #include "myplace.h"
+#include "location-test.h"
 
 Evas_Object *create_indicator_bg(Evas_Object * parent)
 {
@@ -456,9 +457,9 @@ static Evas_Object *myplace_placelist_create_gl(Evas_Object *parent, void *data)
 	itc_discription->func.content_get = NULL;
 	itc_discription->func.state_get = NULL;
 	itc_discription->func.del = NULL;
-	gi_discription = elm_genlist_item_append(genlist, itc_discription, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+	gi_discription = elm_genlist_item_append(genlist, itc_discription, NULL, NULL, ELM_GENLIST_ITEM_NONE, _setting_location_test_view, NULL);
 
-	elm_genlist_item_select_mode_set(gi_discription, ELM_OBJECT_SELECT_MODE_NONE);
+//	elm_genlist_item_select_mode_set(gi_discription, ELM_OBJECT_SELECT_MODE_NONE);
 
 	for (i = 0; i <= ad->last_index; i++) {
 		/* add more place to genlist */

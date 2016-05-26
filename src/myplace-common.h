@@ -221,6 +221,8 @@ typedef struct appdata
 	myplace_data *selected_place;
 	myplace_data *modified_place;
 	myplace_data *mapview_place;
+
+	bool satellite_enable;
 } myplace_app_data;
 
 myplace_app_data *myplace_common_get_app_data(void);
