@@ -219,7 +219,8 @@ static void mapLongPressed(myplace_app_data *ad)
 		ret = maps_view_add_object(ad->maps_view, marker);
 		if (ret != MAPS_ERROR_NONE) {
 			LS_LOGE("maps_view_add_object fail, error = %d", ret);
-			maps_coordinates_destroy(coordinates);
+			maps_view_object_destroy(marker);
+			return;
 		}
 	}
 	ret = maps_view_set_center(ad->maps_view, coordinates);
@@ -442,15 +443,15 @@ static void mapview_done_cb(void *data, Evas_Object * obj, void *event_info)
 
 	elm_naviframe_item_pop(ad->nf);
 
-	lat = ad->mapview_place->latitude;
-	lon = ad->mapview_place->longitude;
-	address = ad->mapview_place->address;
-
-	LS_LOGE("lat=%lf lon=%lf address=%s", lat, lon, address);
-
-	setPosition(MYPLACE_METHOD_MAP, lat, lon, address, ad);
-
 	if (ad->mapview_place != NULL) {
+		lat = ad->mapview_place->latitude;
+		lon = ad->mapview_place->longitude;
+		address = ad->mapview_place->address;
+
+		LS_LOGE("lat=%lf lon=%lf address=%s", lat, lon, address);
+
+		setPosition(MYPLACE_METHOD_MAP, lat, lon, address, ad);
+
 		if (ad->mapview_place->address != NULL)
 			free(ad->mapview_place->address);
 		free(ad->mapview_place);
