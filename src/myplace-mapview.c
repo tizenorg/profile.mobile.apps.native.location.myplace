@@ -306,6 +306,24 @@ static void maps_view_event_cb(maps_view_event_type_e type, maps_view_event_data
 			break;
 		}
 		break;
+	case MAPS_VIEW_EVENT_READY:
+		maps_view_unset_event_cb(ad->maps_view, MAPS_VIEW_EVENT_READY);
+
+		// XXX: Show marker with hardcoded coordinates and center map to it
+		maps_coordinates_h maps_coord = NULL;
+		maps_view_object_h marker = NULL;
+		int ret;
+		maps_coordinates_create(52.229861, 21.0117653, &maps_coord);
+		maps_view_set_zoom_level(ad->maps_view, 12);
+		ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
+		LS_LOGD("maps_view_object_create_marker, error = %d", ret);
+		ret = maps_view_add_object(ad->maps_view, marker);
+		LS_LOGD("maps_view_add_object, error = %d", ret);
+		ret = maps_view_set_center(ad->maps_view, maps_coord);
+		LS_LOGD("maps_view_set_center, error = %d", ret);
+		break;
+	case MAPS_VIEW_EVENT_OBJECT:
+		break;
 	default:
 		LS_LOGE("default type");
 		break;
@@ -587,47 +605,17 @@ static Evas_Image *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 		return NULL;
 	}
 
-	if (ad->mapview_place->address == NULL) {
-		ret = maps_coordinates_create(0, 0, &maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_coordinates_create fail, error = %d", ret);
-		ret = maps_view_set_zoom_level(ad->maps_view, 2);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
-		ret = maps_view_set_center(ad->maps_view, maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_center fail, error = %d", ret);
-		if (maps_coord)
-			maps_coordinates_destroy(maps_coord);
-	} else {
-		LS_LOGE("create_map_layout: lat=%lf lon=%lf address=%s", ad->mapview_place->latitude, ad->mapview_place->longitude, ad->mapview_place->address);
-
-		ret = maps_coordinates_create(ad->mapview_place->latitude, ad->mapview_place->longitude, &maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_coordinates_create fail, error = %d", ret);
-		ret = maps_view_set_zoom_level(ad->maps_view, 12);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
-
-		if (ad->mapview_place->address != NULL)
-			elm_entry_entry_set(ad->map_entry, ad->mapview_place->address);
-
-		ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
-		if (ret != MAPS_ERROR_NONE) {
-			maps_coordinates_destroy(maps_coord);
-			LS_LOGE("map_object_create_marker fail, error = %d", ret);
-		} else {
-			ret = maps_view_add_object(ad->maps_view, marker);
-			if (ret != MAPS_ERROR_NONE) {
-				LS_LOGE("maps_view_add_object fail, error = %d", ret);
-				maps_view_object_destroy(marker);
-			}
-		}
-	}
+	// XXX: Show only hardcoded marker
 
 	ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_GESTURE, maps_view_event_cb, ad);
 	if (ret != MAPS_ERROR_NONE)
-		LS_LOGE("maps_view_set_event_cb fail, error = %d", ret);
+		LS_LOGE("maps_view_set_event_cb[GESTURE] fail, error = %d", ret);
+	ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_READY, maps_view_event_cb, ad);
+	if (ret != MAPS_ERROR_NONE)
+		LS_LOGE("maps_view_set_event_cb[READY] fail, error = %d", ret);
+	ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_OBJECT, maps_view_event_cb, ad);
+	if (ret != MAPS_ERROR_NONE)
+		LS_LOGE("maps_view_set_event_cb[OBJECT] fail, error = %d", ret);
 
 	return panel;
 }
@@ -681,22 +669,7 @@ static Evas_Object *create_map_view(myplace_app_data *ad)
 	evas_object_size_hint_weight_set(main_box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_show(main_box);
 
-	sub_box = elm_box_add(main_box);
-	elm_box_horizontal_set(sub_box, EINA_TRUE);
-	evas_object_size_hint_align_set(sub_box, EVAS_HINT_FILL, 0.0);
-	evas_object_size_hint_weight_set(sub_box, EVAS_HINT_EXPAND, 0.0);
-	evas_object_show(main_box);
-
-	searchfield = create_searchfield_layout(ad, sub_box);
-	elm_box_pack_end(sub_box, searchfield);
-	evas_object_show(searchfield);
-
-	button_layout = create_gpsbutton_layout(ad, sub_box);
-	elm_box_pack_end(sub_box, button_layout);
-	evas_object_show(button_layout);
-
-	elm_box_pack_end(main_box, sub_box);
-	evas_object_show(sub_box);
+	// XXX: I want to remove all unwanted layout elements
 
 	layout = create_map_layout(main_box, ad);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
