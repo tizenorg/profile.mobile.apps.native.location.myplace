@@ -258,6 +258,8 @@ static void maps_view_event_cb(maps_view_event_type_e type, maps_view_event_data
 {
 	myplace_app_data *ad = (myplace_app_data *)user_data;
 	int ret = MAPS_ERROR_NONE;
+	maps_coordinates_h maps_coord = NULL;
+	maps_view_object_h marker = NULL;
 
 	LS_LOGE("maps_view_event_cb enter");
 
@@ -304,6 +306,57 @@ static void maps_view_event_cb(maps_view_event_type_e type, maps_view_event_data
 			break;
 		default:
 			break;
+		}
+		break;
+	case MAPS_VIEW_EVENT_READY:
+		LS_LOGE("MAPS_VIEW_EVENT_READY");
+		ret = maps_view_unset_event_cb(ad->maps_view, MAPS_VIEW_EVENT_READY);
+		if (ret != MAPS_ERROR_NONE)
+			LS_LOGE("maps_view_unset_event_cb[READY] fail, error = %d", ret);
+		ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_GESTURE, maps_view_event_cb, ad);
+		if (ret != MAPS_ERROR_NONE)
+			LS_LOGE("maps_view_set_event_cb[GESTURE] fail, error = %d", ret);
+
+		if (ad->mapview_place->address == NULL) {
+			LS_LOGE("ad->mapview_place->address == NULL");
+			ret = maps_coordinates_create(0, 0, &maps_coord);
+			if (ret != MAPS_ERROR_NONE)
+				LS_LOGE("maps_coordinates_create fail, error = %d", ret);
+			ret = maps_view_set_zoom_level(ad->maps_view, 2);
+			if (ret != MAPS_ERROR_NONE)
+				LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
+			ret = maps_view_set_center(ad->maps_view, maps_coord);
+			if (ret != MAPS_ERROR_NONE)
+				LS_LOGE("maps_view_set_center fail, error = %d", ret);
+			if (maps_coord)
+				maps_coordinates_destroy(maps_coord);
+		} else {
+			LS_LOGE("create_map_layout: lat=%lf lon=%lf address=%s", ad->mapview_place->latitude, ad->mapview_place->longitude, ad->mapview_place->address);
+
+			ret = maps_coordinates_create(ad->mapview_place->latitude, ad->mapview_place->longitude, &maps_coord);
+			if (ret != MAPS_ERROR_NONE)
+				LS_LOGE("maps_coordinates_create fail, error = %d", ret);
+			ret = maps_view_set_zoom_level(ad->maps_view, 12);
+			if (ret != MAPS_ERROR_NONE)
+				LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
+
+			if (ad->mapview_place->address != NULL)
+				elm_entry_entry_set(ad->map_entry, ad->mapview_place->address);
+
+			ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
+			if (ret != MAPS_ERROR_NONE) {
+				maps_coordinates_destroy(maps_coord);
+				LS_LOGE("map_object_create_marker fail, error = %d", ret);
+			} else {
+				ret = maps_view_add_object(ad->maps_view, marker);
+				if (ret != MAPS_ERROR_NONE) {
+					LS_LOGE("maps_view_add_object fail, error = %d", ret);
+					maps_view_object_destroy(marker);
+				}
+				ret = maps_view_set_center(ad->maps_view, maps_coord);
+				if (ret != MAPS_ERROR_NONE)
+					LS_LOGE("maps_view_set_center fail, error = %d", ret);
+			}
 		}
 		break;
 	default:
@@ -572,8 +625,6 @@ Evas_Object *create_gpsbutton_layout(void *data, Evas_Object *obj)
 static Evas_Image *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 {
 	Evas_Image *panel = evas_object_image_filled_add(evas_object_evas_get(parent));
-	maps_coordinates_h maps_coord = NULL;
-	maps_view_object_h marker = NULL;
 	int ret = 0;
 
 	ret = maps_service_set_provider_key(ad->maps_service, "myplace/myplace");
@@ -587,47 +638,9 @@ static Evas_Image *create_map_layout(Evas_Object *parent, myplace_app_data *ad)
 		return NULL;
 	}
 
-	if (ad->mapview_place->address == NULL) {
-		ret = maps_coordinates_create(0, 0, &maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_coordinates_create fail, error = %d", ret);
-		ret = maps_view_set_zoom_level(ad->maps_view, 2);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
-		ret = maps_view_set_center(ad->maps_view, maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_center fail, error = %d", ret);
-		if (maps_coord)
-			maps_coordinates_destroy(maps_coord);
-	} else {
-		LS_LOGE("create_map_layout: lat=%lf lon=%lf address=%s", ad->mapview_place->latitude, ad->mapview_place->longitude, ad->mapview_place->address);
-
-		ret = maps_coordinates_create(ad->mapview_place->latitude, ad->mapview_place->longitude, &maps_coord);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_coordinates_create fail, error = %d", ret);
-		ret = maps_view_set_zoom_level(ad->maps_view, 12);
-		if (ret != MAPS_ERROR_NONE)
-			LS_LOGE("maps_view_set_zoom_level fail, error = %d", ret);
-
-		if (ad->mapview_place->address != NULL)
-			elm_entry_entry_set(ad->map_entry, ad->mapview_place->address);
-
-		ret = maps_view_object_create_marker(maps_coord, IMG_DIR"/location_01_ic.png", MAPS_VIEW_MARKER_PIN, &marker);
-		if (ret != MAPS_ERROR_NONE) {
-			maps_coordinates_destroy(maps_coord);
-			LS_LOGE("map_object_create_marker fail, error = %d", ret);
-		} else {
-			ret = maps_view_add_object(ad->maps_view, marker);
-			if (ret != MAPS_ERROR_NONE) {
-				LS_LOGE("maps_view_add_object fail, error = %d", ret);
-				maps_view_object_destroy(marker);
-			}
-		}
-	}
-
-	ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_GESTURE, maps_view_event_cb, ad);
+	ret = maps_view_set_event_cb(ad->maps_view, MAPS_VIEW_EVENT_READY, maps_view_event_cb, ad);
 	if (ret != MAPS_ERROR_NONE)
-		LS_LOGE("maps_view_set_event_cb fail, error = %d", ret);
+		LS_LOGE("maps_view_set_event_cb[READY] fail, error = %d", ret);
 
 	return panel;
 }
