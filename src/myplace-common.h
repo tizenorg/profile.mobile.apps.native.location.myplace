@@ -43,7 +43,7 @@ extern "C" {
 #include <wifi.h>
 #include <bluetooth.h>
 #include <geofence_manager.h>
-#include <maps_view.h>
+#include <maps_service.h>
 
 #if !defined(MYPLACE_PKG)
 #define MYPLACE_PKG "org.tizen.myplace"
